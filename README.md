@@ -6,6 +6,9 @@ Built with Prisma, MySQL, GraphQL/REST
 ## Run in terminal 
 `docker-compose up -d`
 
+## Run in terminal
+`npm run generate`
+
 ## Run in terminal 
 `npm i prepare`
 
