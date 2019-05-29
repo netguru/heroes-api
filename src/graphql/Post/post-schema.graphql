@@ -1,0 +1,16 @@
+#import User from '../User/user-schema.graphql'
+
+type Post {
+	id: ID!
+	title: String!
+	published: Boolean!
+	author: User!
+}
+
+type Mutation {
+	createNewPost(title: String!, author: ID!): Post!
+}
+
+type Query {
+	getAllPosts: [Post!]!
+}

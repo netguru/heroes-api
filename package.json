@@ -22,7 +22,7 @@
     "typescript": "^3.4.5"
   },
   "scripts": {
-    "prepare": "prisma deploy && npm run start:rest",
+    "prepare": "npm i && prisma deploy && npm run start:rest",
     "start:graphql": "ts-node GRAPHQL_index.ts",
     "start:rest": "ts-node REST_index.ts",
     "dev:rest": "ts-node-dev --no-notify --respawn --transpileOnly ./REST_index.ts",
