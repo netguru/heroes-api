@@ -3,7 +3,7 @@
         "lib": ["es2016", "esnext.asynciterable"],
         "baseUrl": ".",
         "paths": {
-            "@interface/*": ["./src/interface/*"],
+            "@interface/*": ["./src/types/*"],
             "@prisma/": ["./generated/prisma-client"]
         },
         "typeRoots": [
