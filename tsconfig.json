@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "lib": ["es2016", "esnext.asynciterable"],
+        "baseUrl": ".",
+        "paths": {
+            "@interface/*": ["./src/interface/*"],
+            "@prisma/": ["./generated/prisma-client"]
+        },
+        "typeRoots": [
+            "./src/types/",
+            "./node_modules/@types/"
+        ]
+    }
+}
