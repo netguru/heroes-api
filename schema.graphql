@@ -1,2 +1,2 @@
-#import Query.*, Mutation.*, * from './src/graphql/Post/post-schema.graphql'
-#import Query.*, Mutation.*, * from './src/graphql/User/user-schema.graphql'
+#import Query.*, Mutation.*, * from './src/graphql/Person/person-schema.graphql'
+#import Query.*, Mutation.*, * from './src/graphql/Job/job-schema.graphql'

@@ -1,0 +1,6 @@
+type Person {
+	id: ID! @id
+	first_name: String!
+	last_name: String!
+	job: Job! @relation(link: INLINE)
+}

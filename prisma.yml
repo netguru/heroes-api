@@ -1,5 +1,7 @@
 endpoint: http://localhost:4466
-datamodel: datamodel.prisma
+datamodel:
+  - ./datamodel/person.prisma
+  - ./datamodel/job.prisma
 
 seed:
   run: ts-node ./src/seed/index.ts
@@ -7,6 +9,3 @@ seed:
 generate:
   - generator: typescript-client
     output: ./generated/prisma-client/
-hooks:
-  post-deploy:
-    - prisma generate
