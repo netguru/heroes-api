@@ -4,10 +4,11 @@ Built with Prisma, MySQL, GraphQL/REST
 # First run
 
 ## Run in terminal 
-`docker-compose up -d`
+* `docker-compose up -d`
 
-## Run in terminal 
-`npm i prepare`
+* `npm run generate`
+
+* `npm i prepare`
 
 ## Run in terminal 
 * For REST `npm run start:rest`
