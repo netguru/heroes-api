@@ -1,19 +1,19 @@
 FROM mhart/alpine-node
 
-ARG location="/usr/netguru"
+ARG LOCATION="/usr/netguru"
 
-WORKDIR ${location}
+WORKDIR ${LOCATION}
 
-RUN mkdir -p ${location}
+RUN mkdir -p ${LOCATION}
 
-COPY package.json ${location}
+COPY package.json ${LOCATION}
 
 RUN npm i
 
-COPY . ${location}
+COPY . ${LOCATION}
 
 RUN npm run deploy
 
-CMD ["npm", "run", "start:graphql"]
+CMD ["npm", "run", "start:${VERSION}"]
 
 EXPOSE 3000
