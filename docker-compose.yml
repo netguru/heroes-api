@@ -22,5 +22,9 @@ services:
       MYSQL_ROOT_PASSWORD: prisma
     volumes:
       - mysql:/var/lib/mysql
+  application:
+    build: .
+    ports:
+      - "3000:4000"
 volumes:
   mysql: ~
