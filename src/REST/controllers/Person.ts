@@ -19,3 +19,19 @@ export async function getAllPersons(req, res) {
 
   res.send(all);
 }
+
+export async function getSinglePerson(req, res) {
+  const { body } = req;
+
+  const { id } = body;
+
+  const person = await prisma.person({ id });
+
+  if (!person) {
+    return res.send({
+      message: 'No user',
+    });
+  }
+
+  return person;
+}

@@ -1,8 +1,8 @@
 import { prisma } from './generated/prisma-client';
 
 export async function main() {
-  const Docktor = await prisma.createJob({
-    name: 'Docktor',
+  const Doctor = await prisma.createJob({
+    name: 'Doctor',
     description: 'Lorem ipsum',
   });
 
@@ -11,7 +11,7 @@ export async function main() {
     last_name: 'Doe',
     job: {
       connect: {
-        id: Docktor.id,
+        id: Doctor.id,
       },
     },
   });
