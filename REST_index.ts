@@ -16,11 +16,11 @@ app.get('/', (req, res) => {
   });
 });
 
-app.post('/person/add', addNewPerson);
+app.post('/people/add', addNewPerson);
 
-app.get('/person', getAllPersons);
+app.get('/people', getAllPersons);
 
-app.get('/person/:id', getSinglePerson);
+app.get('/people/:id', getSinglePerson);
 
 app.listen(PORT, () =>
   console.log(`Server is listening on http://localhost:${PORT}`),
