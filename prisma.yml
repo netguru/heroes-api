@@ -4,7 +4,7 @@ datamodel:
   - ./datamodel/job.prisma
 
 seed:
-  run: ts-node ./src/seed/index.ts
+  run: ts-node ./seed.ts
 
 generate:
   - generator: typescript-client

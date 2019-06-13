@@ -1,6 +1,10 @@
 import * as express from 'express';
 
-import { AddNewUser, AllUsers } from './src/REST/controllers/User';
+import {
+  addNewPerson,
+  getAllPersons,
+  getSinglePerson,
+} from './src/REST/controllers/Person';
 
 const app = express();
 
@@ -8,12 +12,16 @@ const PORT = 3200;
 
 app.get('/', (req, res) => {
   res.send({
-    message: 'ok',
+    message: 'Server is running',
   });
 });
 
-app.get('/addUser', AddNewUser);
+app.post('/people/add', addNewPerson);
 
-app.get('/allUsers', AllUsers);
+app.get('/people', getAllPersons);
 
-app.listen(PORT, () => `Server is listening on ${PORT}`);
+app.get('/people/:id', getSinglePerson);
+
+app.listen(PORT, () =>
+  console.log(`Server is listening on http://localhost:${PORT}`),
+);
