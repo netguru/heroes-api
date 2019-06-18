@@ -12,6 +12,7 @@ Built with Prisma, MySQL, GraphQL/REST
 ## Running the app
 
 - run `docker-compose up -d`
+- open `http://localhost:4000/` to see if app is working
 
 ## Deploy new schema (after modifying `datamodel.prisma`)
 
