@@ -23,11 +23,12 @@
     "typescript": "^3.4.5"
   },
   "scripts": {
-    "start:graphql": "ts-node GRAPHQL_index.ts",
-    "start:rest": "ts-node REST_index.ts",
-    "dev:rest": "npm run deploy && ts-node-dev --no-notify --respawn --transpileOnly ./REST_index.ts",
-    "dev:graphql": "npm run deploy && ts-node-dev --no-notify --respawn --transpileOnly ./GRAPHQL_index.ts",
+    "start:rest": "ts-node ./src/server-rest.ts",
+    "start:graphql": "ts-node ./src/server-graphql.ts",
+    "dev:rest": "ts-node-dev --no-notify --respawn --transpileOnly ./src/server-rest.ts",
+    "dev:graphql": "ts-node-dev --no-notify --respawn --transpileOnly ./src/server-graphql.ts",
     "deploy": "npm run gst && prisma deploy",
+    "generate": "prisma generate",
     "gst": "ts-node gen-schema.ts"
   },
   "author": "",

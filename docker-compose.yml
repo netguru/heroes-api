@@ -3,6 +3,8 @@ services:
   prisma:
     image: prismagraphql/prisma:1.34
     restart: always
+    depends_on:
+      - mysql
     ports:
       - "4466:4466"
     environment:
@@ -24,7 +26,9 @@ services:
       - mysql:/var/lib/mysql
   application:
     build: .
-    command: npm run start:${VERSION}
+    volumes:
+      - .:/usr/netguru
+    command: npm run dev:${VERSION}
     depends_on:
       - prisma
     ports:
