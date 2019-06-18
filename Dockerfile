@@ -12,8 +12,8 @@ RUN npm i
 
 COPY . ${LOCATION}
 
-RUN npm run deploy
+RUN npx prisma generate
 
 CMD ["npm", "run", "start:${VERSION}"]
 
-EXPOSE 3000
+EXPOSE 4000

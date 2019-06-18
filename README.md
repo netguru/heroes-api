@@ -1,19 +1,10 @@
 # Frontend New Recruitment Task - API
 Built with Prisma, MySQL, GraphQL/REST
 
-# First run
 
-## Run in terminal 
+## Start the app
+
 * `docker-compose up -d`
-
-* `npm run generate`
-
-* `npm i prepare`
-
-## Run in terminal 
-* For REST `npm run start:rest`
-* For GraphQL `npm run start:graphql`
-
 
 ## Run as Developer 
 * For REST `npm run dev:rest`

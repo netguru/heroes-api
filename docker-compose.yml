@@ -24,7 +24,10 @@ services:
       - mysql:/var/lib/mysql
   application:
     build: .
+    command: npm run start:${VERSION}
+    depends_on:
+      - prisma
     ports:
-      - "3000:4000"
+      - "4000:4000"
 volumes:
   mysql: ~
