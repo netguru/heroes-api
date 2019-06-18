@@ -4,7 +4,7 @@ import {
   addNewPerson,
   getAllPersons,
   getSinglePerson
-} from "./src/REST/controllers/Person";
+} from "./rest/controllers/Person";
 
 const app = express();
 
