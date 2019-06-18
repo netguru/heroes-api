@@ -1,6 +1,6 @@
 import * as bodyParser from 'body-parser-graphql';
 import { GraphQLServer } from 'graphql-yoga';
-import { prisma } from '../generated/prisma-client'; // tslint:disable-line
+import { prisma } from '../generated/prisma-client';
 import { resolvers } from './graphql/resolvers';
 
 const server = new GraphQLServer({
