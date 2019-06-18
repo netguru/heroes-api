@@ -12,6 +12,8 @@ RUN npm i
 
 COPY . ${LOCATION}
 
+RUN npm run gst
+
 RUN npm run generate
 
 CMD ["npm", "run", "dev:${VERSION}"]

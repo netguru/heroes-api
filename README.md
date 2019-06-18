@@ -2,17 +2,17 @@
 Built with Prisma, MySQL, GraphQL/REST
 
 
-## Start the app
+## First steps
 
+- modify `.env` file to choose API version (graphql or rest)
 - run `npm i`
-- run `npm run generate` - rerun it everytime you change Prisma schema
 - start the app using `docker-compose up -d`
+- run `docker-compose exec application npm run deploy` - rerun it everytime you change Prisma schema
 
-## Run as Developer 
+## Running the app
 
-- For REST `npm run dev:rest`
-- For GraphQL `npm run dev:graphql`
+- run `docker-compose up -d`
 
 ## Deploy new schema (after modifying `datamodel.prisma`)
 
-`npm run deploy`
+`docker-compose exec application npm run deploy`

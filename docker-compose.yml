@@ -27,7 +27,7 @@ services:
   application:
     build: .
     volumes:
-      - .:/usr/netguru
+      - ./src:/usr/netguru/src
     command: npm run dev:${VERSION}
     depends_on:
       - prisma
