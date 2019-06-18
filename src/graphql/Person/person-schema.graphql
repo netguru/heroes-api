@@ -2,6 +2,7 @@
 
 type Person {
 	id: ID!
+	avatar_url: String!
 	first_name: String!
 	last_name: String!
 	job: Job!
@@ -13,4 +14,5 @@ type Mutation {
 
 type Query {
 	getAllPersons: [Person!]!
+	getPersonsByJobID(ID: ID!): [Person!]!
 }
