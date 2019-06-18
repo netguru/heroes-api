@@ -4,6 +4,7 @@ Built with Prisma, MySQL, GraphQL/REST
 
 ## Start the app
 
+- run `npm i`
 - run `npm run generate` - rerun it everytime you change Prisma schema
 - start the app using `docker-compose up -d`
 
