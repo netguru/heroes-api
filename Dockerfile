@@ -12,8 +12,10 @@ RUN npm i
 
 COPY . ${LOCATION}
 
-RUN npm run deploy
+RUN npm run gst
 
-CMD ["npm", "run", "start:${VERSION}"]
+RUN npm run generate
 
-EXPOSE 3000
+CMD ["npm", "run", "dev:${VERSION}"]
+
+EXPOSE 4000

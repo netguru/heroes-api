@@ -1,7 +1,7 @@
 import * as bodyParser from 'body-parser-graphql';
 import { GraphQLServer } from 'graphql-yoga';
-import { prisma } from './generated/prisma-client';
-import { resolvers } from './src/graphql/resolvers';
+import { prisma } from '../generated/prisma-client';
+import { resolvers } from './graphql/resolvers';
 
 const server = new GraphQLServer({
   context: (req, res) => ({

@@ -4,7 +4,7 @@ export const personMutation = {
   createNewPerson: async (
     parent,
     { first_name, last_name, job_id },
-    { prisma: { createPerson } }: Context,
+    { prisma: { createPerson } }: Context
   ) => {
     return await createPerson({
       first_name,

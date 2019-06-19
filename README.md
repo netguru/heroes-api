@@ -1,27 +1,19 @@
 # Frontend New Recruitment Task - API
 Built with Prisma, MySQL, GraphQL/REST
 
-# First run
 
-## Run in terminal 
-* `docker-compose up -d`
+## First steps
 
-* `npm run generate`
+- modify `.env` file to choose API version (graphql or rest)
+- run `npm i`
+- start the app using `docker-compose up -d`
+- run `docker-compose exec application npm run deploy` - rerun it everytime you change Prisma schema
 
-* `npm i prepare`
+## Running the app
 
-## Run in terminal 
-* For REST `npm run start:rest`
-* For GraphQL `npm run start:graphql`
-
-
-## Run as Developer 
-* For REST `npm run dev:rest`
-* For GraphQL `npm run dev:graphql`
+- run `docker-compose up -d`
+- open `http://localhost:4000/` to see if app is working
 
 ## Deploy new schema (after modifying `datamodel.prisma`)
-`prisma deploy`
 
-## GRAPHQL ONLY
-### Generate Types for schemats
-`npm run deploy`
+`docker-compose exec application npm run deploy`

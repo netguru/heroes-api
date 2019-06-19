@@ -4,11 +4,11 @@ import {
   addNewPerson,
   getAllPersons,
   getSinglePerson,
-} from './src/REST/controllers/Person';
+} from './rest/controllers/Person';
 
 const app = express();
 
-const PORT = 3200;
+const PORT = 4000;
 
 app.get('/', (req, res) => {
   res.send({
@@ -23,5 +23,5 @@ app.get('/people', getAllPersons);
 app.get('/people/:id', getSinglePerson);
 
 app.listen(PORT, () =>
-  console.log(`Server is listening on http://localhost:${PORT}`),
+  console.log(`Server is listening on http://localhost:${PORT}`)
 );
