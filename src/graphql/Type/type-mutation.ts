@@ -1,12 +1,12 @@
 import { Context } from '@interface/prisma';
 
-export const jobMutation = {
-  createNewJob: async (
+export const typeMutation = {
+  createNewType: async (
     parent,
     { name, description = '' },
-    { prisma: { createJob } }: Context,
+    { prisma: { createType } }: Context,
   ) =>
-    await createJob({
+    await createType({
       name,
       description,
     }),

@@ -1,0 +1,9 @@
+type Avatar {
+  id: ID!
+  alt: String!
+  avatar_url: String!
+}
+
+type Query {
+  getAllAvatars: [Avatar!]!
+}

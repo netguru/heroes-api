@@ -1,0 +1,13 @@
+type Type {
+  id: ID!
+  name: String!
+  description: String
+}
+
+type Mutation {
+  createNewType(name: String!, description: String): Type!
+}
+
+type Query {
+  getAllJobs: [Type!]!
+}
