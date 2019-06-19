@@ -2,9 +2,9 @@ import { prisma } from './generated/prisma-client';
 
 // Interfaces
 import { IAvatar } from '@interface/avatar';
+import { IHero } from '@interface/hero';
 
 // Seed data
-import { IHero } from '@interface/hero';
 import { SEED_AVATARS } from './seed/avatar';
 import {
   SEED_ANIMAL_HERO,

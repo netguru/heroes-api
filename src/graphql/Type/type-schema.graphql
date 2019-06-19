@@ -9,5 +9,5 @@ type Mutation {
 }
 
 type Query {
-  getAllJobs: [Type!]!
+  getAllTypes: [Type!]!
 }
