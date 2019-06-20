@@ -9,8 +9,10 @@ type Hero {
 
 type Mutation {
   createNewHero(full_name: String!, type_id: ID!, avatar_url: String!): Hero!
+  updateHero(id: ID!, full_name: String, avatar_url: String, type: ID): Hero!
+  deleteHero(id: ID!): Hero!
 }
 
 type Query {
-  heroes(ID: ID!): [Hero!]!
+  heroes(id: ID!): [Hero!]!
 }

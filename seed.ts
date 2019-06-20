@@ -106,13 +106,6 @@ export async function main() {
       });
     },
   );
-
-  const allHeroes = Promise.all([
-    humanHeroSeed,
-    animalHeroSeed,
-    plantHeroSeed,
-    otherHeroSeed,
-  ]);
 }
 
 main().catch((error) => console.log(error));
