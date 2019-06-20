@@ -9,6 +9,14 @@ import {
   updateHero,
 } from './rest/controllers/Heroes';
 
+import {
+  getAllTypes,
+  getTypeById,
+  createType,
+  deleteType,
+  updateType,
+} from './rest/controllers/Types';
+
 const app = express();
 
 const PORT = 4000;
@@ -26,6 +34,12 @@ app.get('/heroes/:id', getHeroById);
 app.post('/heroes', createHero);
 app.delete('/heroes/:id', deleteHero);
 app.put('/heroes/:id', updateHero);
+
+app.get('/types', getAllTypes);
+app.get('/types/:id', getTypeById);
+app.post('/types', createType);
+app.delete('/types/:id', deleteType);
+app.put('/types/:id', updateType);
 
 app.listen(PORT, () =>
   console.log(`Server is listening on http://localhost:${PORT}`)
