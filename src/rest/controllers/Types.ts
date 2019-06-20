@@ -6,16 +6,6 @@ export async function getAllTypes(req, res) {
   res.send(types);
 }
 
-export async function getTypeById(req, res) {
-  try {
-    const { id } = req.params;
-    const type = await prisma.type({ id });
-    res.send({ type });
-  } catch (e) {
-    res.status(404).send(e.message);
-  }
-}
-
 export async function createType(req, res) {
   const {
     body: { name, description },

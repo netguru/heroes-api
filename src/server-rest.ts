@@ -11,11 +11,17 @@ import {
 
 import {
   getAllTypes,
-  getTypeById,
   createType,
   deleteType,
   updateType,
 } from './rest/controllers/Types';
+
+import {
+  getAllAvatars,
+  createAvatar,
+  deleteAvatar,
+  updateAvatar,
+} from './rest/controllers/Avatars';
 
 const app = express();
 
@@ -36,10 +42,14 @@ app.delete('/heroes/:id', deleteHero);
 app.put('/heroes/:id', updateHero);
 
 app.get('/types', getAllTypes);
-app.get('/types/:id', getTypeById);
 app.post('/types', createType);
 app.delete('/types/:id', deleteType);
 app.put('/types/:id', updateType);
+
+app.get('/avatars', getAllAvatars);
+app.post('/avatars', createAvatar);
+app.delete('/avatars/:id', deleteAvatar);
+app.put('/avatars/:id', updateAvatar);
 
 app.listen(PORT, () =>
   console.log(`Server is listening on http://localhost:${PORT}`)
