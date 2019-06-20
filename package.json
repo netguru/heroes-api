@@ -30,7 +30,8 @@
     "dev:graphql": "ts-node-dev --no-notify --respawn --transpileOnly ./src/server-graphql.ts",
     "deploy": "npm run gst && prisma deploy",
     "generate": "prisma generate",
-    "gst": "ts-node gen-schema.ts"
+    "gst": "ts-node gen-schema.ts",
+    "seed": "prisma seed"
   },
   "author": "",
   "license": "ISC",

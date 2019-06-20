@@ -1,17 +1,19 @@
 import { ResolversMapType } from '../types/resolver';
 
 // resolvers
-import { jobMutation, jobQuery } from './Job';
-import { Person, personMutation, personQuery } from './Person';
+import { avatarQuery } from './Avatar';
+import { Hero, heroMutation, heroQuery } from './Hero';
+import { typeMutation, typeQuery } from './Type';
 
 export const resolvers: ResolversMapType = {
   Mutation: {
-    ...personMutation,
-    ...jobMutation,
+    ...heroMutation,
+    ...typeMutation,
   },
   Query: {
-    ...personQuery,
-    ...jobQuery,
+    ...heroQuery,
+    ...typeQuery,
+    ...avatarQuery,
   },
-  Person,
+  Hero,
 };

@@ -1,7 +1,6 @@
-type Person {
+type Hero {
 	id: ID! @id
 	avatar_url: String! @default(value: "https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/batman_hero_avatar_comics-512.png")
-	first_name: String!
-	last_name: String!
-	job: Job! @relation(link: INLINE)
+	full_name: String!
+	type: Type! @relation(link: INLINE)
 }
