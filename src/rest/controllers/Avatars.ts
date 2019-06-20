@@ -1,9 +1,9 @@
 import { prisma } from '../../../generated/prisma-client';
 
 export async function getAllAvatars(req, res) {
-  const avatar = await prisma.avatars();
+  const avatars = await prisma.avatars();
 
-  res.send(avatar);
+  res.send(avatars);
 }
 
 export async function createAvatar(req, res) {
@@ -20,7 +20,7 @@ export async function createAvatar(req, res) {
 
       res.send(newAvatar);
     } catch (e) {
-      res.status(404).send(e.message);
+      res.status(400).send(e.message);
     }
   } else {
     res.status(500).send('alt and avatar_url are required');
@@ -35,13 +35,13 @@ export async function deleteAvatar(req, res) {
     });
     res.send(deletedAvatar);
   } catch (e) {
-    res.status(404).send(e.message);
+    res.status(400).send(e.message);
   }
 }
 
 export async function updateAvatar(req, res) {
   try {
-    const id = req.params.id;
+    const { id } = req.params;
     const {
       body: { alt, avatar_url },
     } = req;
@@ -56,6 +56,6 @@ export async function updateAvatar(req, res) {
     });
     res.send(updatedAvatar);
   } catch (e) {
-    res.status(404).send(e.message);
+    res.status(400).send(e.message);
   }
 }

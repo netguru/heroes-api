@@ -20,7 +20,7 @@ export async function createType(req, res) {
 
       res.send(newType);
     } catch (e) {
-      res.status(404).send(e.message);
+      res.status(400).send(e.message);
     }
   } else {
     res.status(500).send('name is required');
@@ -35,13 +35,13 @@ export async function deleteType(req, res) {
     });
     res.send(deletedType);
   } catch (e) {
-    res.status(404).send(e.message);
+    res.status(400).send(e.message);
   }
 }
 
 export async function updateType(req, res) {
   try {
-    const id = req.params.id;
+    const { id } = req.params;
     const {
       body: { name, description },
     } = req;
@@ -56,6 +56,6 @@ export async function updateType(req, res) {
     });
     res.send(updatedType);
   } catch (e) {
-    res.status(404).send(e.message);
+    res.status(400).send(e.message);
   }
 }

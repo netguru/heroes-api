@@ -38,7 +38,7 @@ export async function createHero(req, res) {
 
       res.send(newHero);
     } catch (e) {
-      res.status(404).send(e.message);
+      res.status(400).send(e.message);
     }
   } else {
     res.status(500).send('full_name and type are required');
@@ -53,13 +53,13 @@ export async function deleteHero(req, res) {
     });
     res.send(deletedHero);
   } catch (e) {
-    res.status(404).send(e.message);
+    res.status(400).send(e.message);
   }
 }
 
 export async function updateHero(req, res) {
   try {
-    const id = req.params.id;
+    const { id } = req.params;
     const {
       body: { avatar_url, full_name, type },
     } = req;
@@ -77,6 +77,6 @@ export async function updateHero(req, res) {
     });
     res.send(updatedHero);
   } catch (e) {
-    res.status(404).send(e.message);
+    res.status(400).send(e.message);
   }
 }
