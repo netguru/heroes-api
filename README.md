@@ -13,7 +13,7 @@ Built with Prisma, MySQL, GraphQL/REST
 
 ## Running the app
 
-- `docker-compose up `
+- `docker-compose up`
 - `npm run dev:rest` or `npm run dev:graphql`
 - open `http://localhost:4000/` to see if app is working
 

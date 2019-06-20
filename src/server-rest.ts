@@ -1,14 +1,19 @@
 import * as express from 'express';
+import * as bodyParser from 'body-parser';
 
 import {
-  addNewPerson,
-  getAllPersons,
-  getSinglePerson,
-} from './rest/controllers/Person';
+  getAllHeroes,
+  getHeroById,
+  createHero,
+  deleteHero,
+  updateHero,
+} from './rest/controllers/Heroes';
 
 const app = express();
 
 const PORT = 4000;
+
+app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
   res.send({
@@ -16,11 +21,11 @@ app.get('/', (req, res) => {
   });
 });
 
-app.post('/people/add', addNewPerson);
-
-app.get('/people', getAllPersons);
-
-app.get('/people/:id', getSinglePerson);
+app.get('/heroes', getAllHeroes);
+app.get('/heroes/:id', getHeroById);
+app.post('/heroes', createHero);
+app.delete('/heroes/:id', deleteHero);
+app.put('/heroes/:id', updateHero);
 
 app.listen(PORT, () =>
   console.log(`Server is listening on http://localhost:${PORT}`)
