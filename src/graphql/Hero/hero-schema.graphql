@@ -12,6 +12,5 @@ type Mutation {
 }
 
 type Query {
-  getAllHeroes: [Hero!]!
-  getHeroesByJobID(ID: ID!): [Hero!]!
+  heroes(ID: ID!): [Hero!]!
 }

@@ -5,5 +5,5 @@ type Avatar {
 }
 
 type Query {
-  getAllAvatars: [Avatar!]!
+  avatars(ID: ID): [Avatar!]!
 }
