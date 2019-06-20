@@ -44,7 +44,7 @@ export const avatarMutation = {
     { ID, alt, avatar_url },
     { prisma: { updateAvatar }, response }: Context,
   ) => {
-    if (ID && alt && avatar_url) {
+    if (ID && (alt || avatar_url)) {
       try {
         return await updateAvatar({
           data: {
