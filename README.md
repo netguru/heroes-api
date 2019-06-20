@@ -24,3 +24,105 @@ Built with Prisma, MySQL, GraphQL/REST
 ## Deploy new schema (after modifying `*.graphql`)
 
 `npm run generate`
+
+## API DOCS
+
+### Heroes
+
+#### Get all heroes
+```
+GET /heroes
+```
+
+#### Get one hero by id
+```
+GET /heroes/:id
+```
+
+#### Add new hero
+```
+POST /heroes
+```
+body example:
+```json
+{
+	"avatar_url": "https://drive.google.com/open?id=1-RgG25oomcXwLnvNvJ9kNnRs-_5GEkWF",
+	"full_name": "UFO",
+	"type": "cjx4j34l200710701sa7ozzew"
+}
+```
+
+#### Update hero by id
+```
+PUT /heroes/:id
+```
+body example:
+```json
+{
+	"avatar_url": "https://drive.google.com/open?id=1-RgG25oomcXwLnvNvJ9kNnRs-_5GEkWF",
+	"full_name": "UFO",
+	"type": "cjx4j34l200710701sa7ozzew"
+}
+```
+
+### Types
+
+#### Get all types
+```
+GET /types
+```
+
+#### Add new type
+```
+POST /types
+```
+body example:
+```json
+{
+  "name": "Animal",
+  "description": "Animal type"
+}
+```
+
+#### Update type by id
+```
+PUT /type/:id
+```
+body example:
+```json
+{
+	"name": "Animal",
+  "description": "Animal type"
+}
+```
+
+### Avatars
+
+#### Get all avatars
+```
+GET /avatars
+```
+
+#### Add new avatar
+```
+POST /avatars
+```
+body example:
+```json
+{
+  "alt": "St. Claus",
+  "avatar_url": "https://drive.google.com/open?id=1ZmwtQPqYSQUOrEmS8YP3C_7UrAHEA2Ag"
+}
+```
+
+#### Update avatar by id
+```
+PUT /avatars/:id
+```
+body example:
+```json
+{
+  "alt": "St. Claus",
+  "avatar_url": "https://drive.google.com/open?id=1ZmwtQPqYSQUOrEmS8YP3C_7UrAHEA2Ag"
+}
+```
