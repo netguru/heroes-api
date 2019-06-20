@@ -8,7 +8,10 @@ Built with Prisma, MySQL, GraphQL/REST
 
 * `npm run generate`
 
-* `npm i prepare`
+* `npm run deploy`
+
+* `npm run seed`
+
 
 ## Run in terminal 
 * For REST `npm run start:rest`
@@ -21,6 +24,8 @@ Built with Prisma, MySQL, GraphQL/REST
 
 ## Deploy new schema (after modifying `datamodel.prisma`)
 `prisma deploy`
+
+## AFTER MODIFYING `prisma.yml` RUN `npm run generate`!
 
 ## GRAPHQL ONLY
 ### Generate Types for schemats
