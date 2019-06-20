@@ -7,23 +7,16 @@ export const heroMutation = {
     { prisma: { createHero }, response }: Context,
   ) => {
     if (full_name && type_id && avatar_url) {
-      try {
-        return await createHero({
-          full_name,
-          avatar_url,
-          type: {
-            connect: {
-              id: type_id,
-            },
+      return await createHero({
+        full_name,
+        avatar_url,
+        type: {
+          connect: {
+            id: type_id,
           },
-        });
-      } catch (error) {
-        return response.status(500);
-      }
+        },
+      });
     }
-    return response.status(403).send({
-      message: 'Bad Request',
-    });
   },
 
   updateHero: async (
@@ -70,14 +63,7 @@ export const heroMutation = {
     { prisma: { deleteHero }, response }: Context,
   ) => {
     if (id) {
-      try {
-        return await deleteHero({ id });
-      } catch (error) {
-        return response.status(500);
-      }
+      return await deleteHero({ id });
     }
-    return response.send(403).send({
-      message: 'Bad Request',
-    });
   },
 };
