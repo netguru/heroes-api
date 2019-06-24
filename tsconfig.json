@@ -4,7 +4,8 @@
         "baseUrl": ".",
         "paths": {
             "@interface/*": ["./src/types/*"],
-            "@prisma/*": ["./generated/prisma-client"]
+            "@prisma/*": ["./generated/prisma-client"],
+            "@utils/*": ["./src/utils/*"]
         },
         "typeRoots": [
             "./src/types/",
