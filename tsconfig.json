@@ -1,11 +1,10 @@
 {
     "compilerOptions": {
         "lib": ["es2016", "esnext.asynciterable"],
-        "baseUrl": ".",
+        "baseUrl": "./",
         "paths": {
-            "@interface/*": ["./src/types/*"],
-            "@prisma/*": ["./generated/prisma-client"],
-            "@utils/*": ["./src/utils/*"]
+            "@interface/*": ["src/types/*"],
+            "@prisma/*": ["generated/prisma-client"]
         },
         "typeRoots": [
             "./src/types/",
