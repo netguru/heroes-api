@@ -7,3 +7,9 @@ type Avatar {
 type Query {
   avatars(ID: ID): [Avatar!]!
 }
+
+type Mutation {
+  createNewAvatar(avatar_url: String!, alt: String!): Avatar!
+  deleteAvatar(ID: ID!): Avatar!
+  updateAvatar(ID: ID!, alt: String, avatar_url: String): Avatar!
+}

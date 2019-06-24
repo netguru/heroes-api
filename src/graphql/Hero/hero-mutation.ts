@@ -1,5 +1,9 @@
 import { Context } from '@interface/prisma';
+<<<<<<< HEAD
 import { ErrorHandler } from '../../utils';
+=======
+import { ErrorHandler } from '@utils/error-handler';
+>>>>>>> bb6be90c703d16ff88d299aec8b0b8c52f2f031c
 
 export const heroMutation = {
   createNewHero: async (
