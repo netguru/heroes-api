@@ -1,4 +1,5 @@
 import { Context } from '@interface/prisma';
+import { ErrorHandler } from '@utils/error-handler';
 
 export const heroMutation = {
   createNewHero: async (
@@ -17,6 +18,8 @@ export const heroMutation = {
         },
       });
     }
+
+    throw new Error(ErrorHandler.BAD_REQUEST);
   },
 
   updateHero: async (
@@ -52,9 +55,7 @@ export const heroMutation = {
         },
       });
     }
-    return response.status(403).send({
-      message: 'Bad Request',
-    });
+    throw new Error(ErrorHandler.BAD_REQUEST);
   },
 
   deleteHero: async (
@@ -65,5 +66,7 @@ export const heroMutation = {
     if (id) {
       return await deleteHero({ id });
     }
+
+    throw new Error(ErrorHandler.CANT_FIND_QUERY);
   },
 };
