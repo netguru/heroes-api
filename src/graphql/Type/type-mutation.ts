@@ -1,5 +1,5 @@
 import { Context } from '@interface/prisma';
-import { ErrorHandler } from '@utils/error-handler';
+import { ErrorHandler } from '../../utils';
 
 export const typeMutation = {
   createNewType: async (
