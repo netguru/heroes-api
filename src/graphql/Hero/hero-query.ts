@@ -14,7 +14,5 @@ export const heroQuery = {
         },
       },
     });
-
-    return await heroes();
   },
 };
