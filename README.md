@@ -8,7 +8,7 @@ Built with Prisma, MySQL, GraphQL/REST
 - start database using `docker-compose up `
 - run `npm run generate`
 - run `npm run deploy`
-- run `npm run seeds` - to fill database with mock data
+- run `npm run seed` - to fill database with mock data
 - start app using `npm run dev:rest` - for rest vesrion of API or `npm run dev:graphql` for GraphQL version
 
 ## Running the app
