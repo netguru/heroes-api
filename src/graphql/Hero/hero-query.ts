@@ -8,11 +8,20 @@ export const heroQuery = {
   ) => {
     return await heroes({
       where: {
-        full_name_contains: name_query,
+        full_name_contains: name_query,        
         type: {
           id: type_id,
-        },
+        }  
       },
+    });
+  },
+  hero: async (
+    parent,
+    { id },
+    { prisma: { hero } }: Context,
+  ) => {
+    return await hero({
+      id
     });
   },
 };

@@ -29,30 +29,27 @@ export async function main() {
 
   const humanTypeSeed = await prisma.createType({
     name: 'Human',
-    description: 'It\' a human!',
   });
 
   const animalTypeSeed = await prisma.createType({
     name: 'Animal',
-    description: 'Animal type',
   });
 
   const otherTypeSeed = await prisma.createType({
     name: 'Other',
-    description: 'Can\'t even name it',
   });
 
   const plantTypeSeed = await prisma.createType({
     name: 'Plant',
-    description: 'It\'s a plant!',
   });
 
   // HUMAN HERO SEED
   const humanHeroSeed = SEED_HUMAN_HERO.map(
-    async ({ avatar_url, full_name, type }: IHero, index: number) => {
+    async ({ avatar_url, full_name, description, type }: IHero, index: number) => {
       return prisma.createHero({
         full_name,
         avatar_url,
+        description,
         type: {
           connect: {
             id: type.replace('#ID', humanTypeSeed.id),
@@ -64,10 +61,11 @@ export async function main() {
 
   // ANIMAL HERO SEED
   const animalHeroSeed = SEED_ANIMAL_HERO.map(
-    async ({ avatar_url, full_name, type }: IHero, index: number) => {
+    async ({ avatar_url, full_name, description, type }: IHero, index: number) => {
       return prisma.createHero({
         full_name,
         avatar_url,
+        description,
         type: {
           connect: {
             id: type.replace('#ID', animalTypeSeed.id),
@@ -79,10 +77,11 @@ export async function main() {
 
   // PLANT HERO SEED
   const plantHeroSeed = SEED_PLANT_HERO.map(
-    async ({ avatar_url, full_name, type }: IHero, index: number) => {
+    async ({ avatar_url, full_name, description, type }: IHero, index: number) => {
       return prisma.createHero({
         full_name,
         avatar_url,
+        description,
         type: {
           connect: {
             id: type.replace('#ID', plantTypeSeed.id),
@@ -94,10 +93,11 @@ export async function main() {
 
   // OTHER HERO SEED
   const otherHeroSeed = SEED_OTHER_HERO.map(
-    async ({ avatar_url, full_name, type }: IHero, index: number) => {
+    async ({ avatar_url, full_name, description, type }: IHero, index: number) => {
       return prisma.createHero({
         full_name,
         avatar_url,
+        description,
         type: {
           connect: {
             id: type.replace('#ID', otherTypeSeed.id),
