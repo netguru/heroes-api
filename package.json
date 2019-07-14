@@ -32,7 +32,7 @@
     "deploy": "npm run gst && prisma deploy",
     "generate": "prisma generate",
     "gst": "ts-node gen-schema.ts",
-    "seed": "prisma seed"
+    "seed": "prisma seed --reset"
   },
   "author": "",
   "license": "ISC",
