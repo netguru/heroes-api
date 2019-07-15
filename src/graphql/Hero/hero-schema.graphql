@@ -16,5 +16,5 @@ type Mutation {
 
 type Query {
   heroes(type_id: ID, name_query: String): [Hero!]!
-  hero(id: ID): Hero!
+  hero(id: ID!): Hero!
 }
