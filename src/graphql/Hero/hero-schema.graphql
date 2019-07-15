@@ -4,6 +4,7 @@ type Hero {
   id: ID!
   avatar_url: String!
   full_name: String!
+  description: String!
   type: Type!
 }
 
@@ -15,4 +16,5 @@ type Mutation {
 
 type Query {
   heroes(type_id: ID, name_query: String): [Hero!]!
+  hero(id: ID!): Hero!
 }
