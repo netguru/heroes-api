@@ -4,13 +4,12 @@ import { ErrorHandler } from '../../utils';
 export const typeMutation = {
   createNewType: async (
     parent,
-    { name, description = '' },
-    { prisma: { createType } }: Context,
+    { name },
+    { prisma: { createType } }: Context
   ) => {
-    if (name && description) {
+    if (name) {
       return await createType({
         name,
-        description,
       });
     }
 

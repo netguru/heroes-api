@@ -1,11 +1,10 @@
 type Type {
   id: ID!
   name: String!
-  description: String
 }
 
 type Mutation {
-  createNewType(name: String!, description: String): Type!
+  createNewType(name: String!): Type!
 }
 
 type Query {
