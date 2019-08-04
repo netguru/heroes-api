@@ -9,12 +9,23 @@ type Hero {
 }
 
 type Mutation {
-  createNewHero(full_name: String!, type_id: ID!, avatar_url: String!, description: String!): Hero!
-  updateHero(id: ID!, full_name: String, avatar_url: String, type_id: ID, description: String): Hero!
+  createNewHero(
+    full_name: String!
+    type_id: ID!
+    avatar_url: String!
+    description: String!
+  ): Hero!
+  updateHero(
+    id: ID!
+    full_name: String
+    avatar_url: String
+    type_id: ID
+    description: String
+  ): Hero!
   deleteHero(id: ID!): Hero!
 }
 
 type Query {
-  heroes(type_id: ID, name_query: String): [Hero!]!
+  heroes(type_id: ID, name_query: String, skip: Int, first: Int): [Hero!]!
   hero(id: ID!): Hero!
 }
