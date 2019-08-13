@@ -10,7 +10,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/netguru/fe-recru-api">
-    <img src="https://drive.google.com/open?id=1qmmkLY40DBrNLw6eDL1l8EazvFB9vAZ3" alt="Logo" width="80" height="80">
+    <img src="https://ui-ex.com/images/deadpool-svg-head-2.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Heroes API</h3>
