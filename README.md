@@ -37,14 +37,12 @@ A backend appliaction built with Prisma, Docker and Node.js
 * [About the Project](#about-the-project)
   * [Built With](#built-with)
 * [Getting Started](#getting-started)
-  * [Prerequisites](#prerequisites)
+  * [Initial setup](#initial-setup)
   * [Installation](#installation)
+  * [Running the project](#running-the-project)
 * [Usage](#usage)
-* [Roadmap](#roadmap)
-* [Contributing](#contributing)
+* [Authors](#authors)
 * [License](#license)
-* [Contact](#contact)
-* [Acknowledgements](#acknowledgements)
 
 
 
@@ -78,7 +76,7 @@ This application was built with:
 This is an example of how you may give instructions on setting up your project locally.
 To get a local copy up and running follow these simple example steps.
 
-### Prerequisites - Initial setup
+### Initial setup 
 
 This is an example of how to list things you need to use the software and how to install them.
 
@@ -114,15 +112,7 @@ Use this space to show useful examples of how a project can be used. Additional 
 _For more examples, please refer to the [Documentation](https://example.com)_
 
 
-
-<!-- ROADMAP -->
-## Roadmap
-
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a list of proposed features (and known issues).
-
-
-
-<!-- CONTRIBUTING -->
+<!-- Authors -->
 ## Authors
 
 1. Piotr Kumorek
