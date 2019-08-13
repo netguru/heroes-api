@@ -81,35 +81,36 @@ To get a local copy up and running follow these simple example steps.
 This is an example of how to list things you need to use the software and how to install them.
 
 * Launch Docker compose to run Prisma's nad MySQL's images.
-```docker-compose up -d```
+  ```docker-compose up -d```
 
 * Generate prisma instance based on datamodel
-```npm run generate```
+  ```npm run generate```
 
 * Deploy database schema into the MySQL database
-```npm run deploy```
+  ```npm run deploy```
 
 * Seed the database with default data
-```npm run seed```
+  ```npm run seed```
 
 ### Running the project
 #### For REST API
 
 * Run in terminal:
-```npm run start:rest```
+  ```npm run start:rest```
 
 #### For GraphQL
 
 * Run in terminal
-```npm run start:graphql```
+  ```npm run start:graphql```
 
 
 #### Important
+
 * Deploy new schema (after modifying `datamodel.prisma`)
-```prisma deploy```
+  ```prisma deploy```
 
 * AFTER MODIFYING `prisma.yml` 
-```npm run generate```
+  ```npm run generate```
 
 
 <!-- USAGE EXAMPLES -->
