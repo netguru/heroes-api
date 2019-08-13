@@ -33,6 +33,13 @@ Built with Prisma, MySQL, GraphQL/REST
 ```
 GET /heroes
 ```
+body example:
+```json
+{
+	"page_size": 10,
+	"page_from": 5
+}
+```
 
 #### Get one hero by id
 ```
