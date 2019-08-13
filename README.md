@@ -30,3 +30,11 @@ Built with Prisma, MySQL, GraphQL/REST
 ## GRAPHQL ONLY
 ### Generate Types for schemats
 `npm run deploy`
+
+
+## Documentation
+### REST
+https://github.com/netguru/fe-recru-api/wiki
+
+### GraphQL
+Playground is available on localhost:4000
