@@ -25,7 +25,7 @@ export async function getHeroById(req, res) {
 
 export async function createHero(req, res) {
   const {
-    body: { avatar_url, full_name, type },
+    body: { avatar_url, full_name, type, description },
   } = req;
 
   if (full_name && type) {
@@ -33,6 +33,7 @@ export async function createHero(req, res) {
       const newHero = await prisma.createHero({
         avatar_url,
         full_name,
+        description,
         type: { connect: { id: type } },
       });
 
@@ -63,13 +64,20 @@ export async function updateHero(req, res) {
     const {
       body: { avatar_url, full_name, type },
     } = req;
+
+    const connect = type
+      ? {
+          connect: {
+            id: type,
+          },
+        }
+      : {};
+
     const updatedHero = await prisma.updateHero({
       data: {
         avatar_url,
         full_name,
-        type: {
-          connect: { id: type },
-        },
+        type: connect,
       },
       where: {
         id,
