@@ -8,14 +8,13 @@ export async function getAllTypes(req, res) {
 
 export async function createType(req, res) {
   const {
-    body: { name, description },
+    body: { name },
   } = req;
 
   if (name) {
     try {
       const newType = await prisma.createType({
         name,
-        description,
       });
 
       res.send(newType);
@@ -43,12 +42,11 @@ export async function updateType(req, res) {
   try {
     const { id } = req.params;
     const {
-      body: { name, description },
+      body: { name },
     } = req;
     const updatedType = await prisma.updateType({
       data: {
         name,
-        description,
       },
       where: {
         id,

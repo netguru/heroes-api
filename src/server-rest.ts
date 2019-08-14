@@ -1,25 +1,25 @@
-import * as express from 'express';
 import * as bodyParser from 'body-parser';
+import * as express from 'express';
 
 import {
-  getAllHeroes,
-  getHeroById,
   createHero,
   deleteHero,
+  getAllHeroes,
+  getHeroById,
   updateHero,
 } from './rest/controllers/Heroes';
 
 import {
-  getAllTypes,
   createType,
   deleteType,
+  getAllTypes,
   updateType,
 } from './rest/controllers/Types';
 
 import {
-  getAllAvatars,
   createAvatar,
   deleteAvatar,
+  getAllAvatars,
   updateAvatar,
 } from './rest/controllers/Avatars';
 
@@ -52,5 +52,5 @@ app.delete('/avatars/:id', deleteAvatar);
 app.put('/avatars/:id', updateAvatar);
 
 app.listen(PORT, () =>
-  console.log(`Server is listening on http://localhost:${PORT}`)
+  console.log(`Server is listening on http://localhost:${PORT}`),
 );
