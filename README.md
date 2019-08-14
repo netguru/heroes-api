@@ -36,8 +36,8 @@ GET /heroes
 body example:
 ```json
 {
-	"page_size": 10,
-	"page_from": 5
+	"first": 10,
+	"skip": 5
 }
 ```
 
