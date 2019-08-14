@@ -21,8 +21,6 @@ A backend appliaction built with Prisma, Docker and Node.js
     <a href="https://github.com/netguru/fe-recru-api/wiki"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
-    ·
     <a href="https://github.com/netguru/fe-recru-api/issues">Report Bug</a>
     ·
     <a href="https://github.com/netguru/fe-recru-api/issues">Request Feature</a>
@@ -40,7 +38,6 @@ A backend appliaction built with Prisma, Docker and Node.js
   * [Initial setup](#initial-setup)
   * [Installation](#installation)
   * [Running the project](#running-the-project)
-* [Usage](#usage)
 * [Authors](#authors)
 * [License](#license)
 
@@ -113,28 +110,18 @@ This is an example of how to list things you need to use the software and how to
   ```npm run generate```
 
 
-<!-- USAGE EXAMPLES -->
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-
 <!-- Authors -->
 ## Authors
 
-1. Piotr Kumorek
-2. Sebastian Stój
-3. Sławek Kołodziej
-4. Franciszek Stodulski
+1. <a href="https://github.com/qmixi" target="_blank">Piotr Kumorek</a>
+2. <a href="https://github.com/SebastianStj" target="_blank">Sebastian Stój</a>
+3. <a href="https://github.com/slawomirkolodziej" target="_blank">Sławek Kołodziej</a>
+4. <a href="https://github.com/Kamieniu" target="_blank">Franciszek Stodulski</a>
 
 <!-- LICENSE -->
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
-
-
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
