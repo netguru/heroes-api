@@ -70,8 +70,7 @@ This application was built with:
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+Before you started, make sure you have a Docker installed on your local machine.
 
 ### Initial setup 
 
@@ -135,6 +134,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 [issues-url]: https://github.com/netguru/fe-recru-api/issues
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=flat-square
 [license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
 [product-screenshot]: images/screenshot.png
