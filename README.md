@@ -109,12 +109,12 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=flat-square
 [contributors-url]: https://github.com/netguru/fe-recru-api/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=flat-square
+[forks-shield]: https://img.shields.io/github/forks/netguru/heroes-api
 [forks-url]: https://github.com/netguru/fe-recru-api/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=flat-square
+[stars-shield]: 	https://img.shields.io/github/stars/netguru/heroes-api
 [stars-url]: https://github.com/netguru/fe-recru-api/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=flat-square
+[issues-shield]: 	https://img.shields.io/github/issues/netguru/heroes-api
 [issues-url]: https://github.com/netguru/fe-recru-api/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=flat-square
-[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
+[license-shield]: https://img.shields.io/github/license/netguru/heroes-api
+[license-url]: https://github.com/netguru/heroes-api/blob/master/LICENSE.txt
 [product-screenshot]: images/screenshot.png
