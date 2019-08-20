@@ -1,135 +1,116 @@
-# Frontend New Recruitment Task - API
-Built with Prisma, MySQL, GraphQL/REST
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
 
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://github.com/netguru/heroes-api">
+    <img src="https://ui-ex.com/images/deadpool-svg-head-2.png" alt="Logo" width="80" height="80">
+  </a>
 
-## First steps
+  <h3 align="center">Heroes API</h3>
 
-- run `npm i`
-- start database using `docker-compose up `
-- run `npm run generate`
-- run `npm run deploy`
-- run `npm run seed` - to fill database with mock data
-- start app using `npm run dev:rest` - for rest vesrion of API or `npm run dev:graphql` for GraphQL version
+  <p align="center">
+A backend appliaction built with Prisma, Docker and Node.js
+    <br />
+    <a href="https://github.com/netguru/heroes-api/wiki"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/netguru/heroes-api/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/netguru/heroes-api/issues">Request Feature</a>
+  </p>
+</p>
 
-## Running the app
+<!-- TABLE OF CONTENTS -->
 
-- `docker-compose up`
-- `npm run dev:rest` or `npm run dev:graphql`
-- open `http://localhost:4000/` to see if app is working
+## Table of Contents
 
-## Deploy new schema (after modifying `datamodel.prisma`)
+- [Built With](#built-with)
+- [Getting Started](#getting-started)
+  - [Initial setup](#initial-setup)
+  - [Installation](#installation)
+  - [Running the project](#running-the-project)
+- [Authors](#authors)
+- [License](#license)
 
-`npm run deploy`
+## Built With
 
-## Deploy new schema (after modifying `*.graphql`)
+This application was built with:
 
-`npm run generate`
+- [Prisma](https://www.prisma.io/)
+- [Node.js](https://node.js.org/)
+- [Docker](https://www.docker.com/)
 
-## API DOCS
+<!-- GETTING STARTED -->
 
-### Heroes
+## Getting Started
 
-#### Get all heroes
-```
-GET /heroes
-```
-body example:
-```json
-{
-	"first": 10,
-	"skip": 5
-}
-```
+Before you start, make sure you have a Docker installed on your local machine.
 
-#### Get one hero by id
-```
-GET /heroes/:id
-```
+### Initial setup
 
-#### Add new hero
-```
-POST /heroes
-```
-body example:
-```json
-{
-	"avatar_url": "https://drive.google.com/open?id=1-RgG25oomcXwLnvNvJ9kNnRs-_5GEkWF",
-	"full_name": "UFO",
-	"type": "cjx4j34l200710701sa7ozzew"
-}
-```
+- Launch Docker compose to run Prisma's nad MySQL's images.
+  `docker-compose up -d`
 
-#### Update hero by id
-```
-PUT /heroes/:id
-```
-body example:
-```json
-{
-	"avatar_url": "https://drive.google.com/open?id=1-RgG25oomcXwLnvNvJ9kNnRs-_5GEkWF",
-	"full_name": "UFO",
-	"type": "cjx4j34l200710701sa7ozzew"
-}
-```
+- Generate prisma instance based on datamodel
+  `npm run generate`
 
-### Types
+- Deploy database schema into the MySQL database
+  `npm run deploy`
 
-#### Get all types
-```
-GET /types
-```
+- Seed the database with default data
+  `npm run seed`
 
-#### Add new type
-```
-POST /types
-```
-body example:
-```json
-{
-  "name": "Animal",
-  "description": "Animal type"
-}
-```
+### Running the project
 
-#### Update type by id
-```
-PUT /type/:id
-```
-body example:
-```json
-{
-	"name": "Animal",
-  "description": "Animal type"
-}
-```
+#### For REST API
 
-### Avatars
+- Run in terminal:
+  `npm run start:rest`
 
-#### Get all avatars
-```
-GET /avatars
-```
+#### For GraphQL
 
-#### Add new avatar
-```
-POST /avatars
-```
-body example:
-```json
-{
-  "alt": "St. Claus",
-  "avatar_url": "https://drive.google.com/open?id=1ZmwtQPqYSQUOrEmS8YP3C_7UrAHEA2Ag"
-}
-```
+- Run in terminal
+  `npm run start:graphql`
 
-#### Update avatar by id
-```
-PUT /avatars/:id
-```
-body example:
-```json
-{
-  "alt": "St. Claus",
-  "avatar_url": "https://drive.google.com/open?id=1ZmwtQPqYSQUOrEmS8YP3C_7UrAHEA2Ag"
-}
-```
+#### Important
+
+- Deploy new schema (after modifying `datamodel.prisma`)
+  `prisma deploy`
+
+- AFTER MODIFYING `prisma.yml`
+  `npm run generate`
+
+<!-- Authors -->
+
+## Authors
+
+1. <a href="https://github.com/qmixi" target="_blank">Piotr Kumorek</a>
+2. <a href="https://github.com/SebastianStj" target="_blank">Sebastian Stój</a>
+3. <a href="https://github.com/slawomirkolodziej" target="_blank">Sławek Kołodziej</a>
+4. <a href="https://github.com/Kamieniu" target="_blank">Franciszek Stodulski</a>
+
+<!-- LICENSE -->
+
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
+[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=flat-square
+[contributors-url]: https://github.com/netguru/heroes-api/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/netguru/heroes-api
+[forks-url]: https://github.com/netguru/heroes-api/network/members
+[stars-shield]: https://img.shields.io/github/stars/netguru/heroes-api
+[stars-url]: https://github.com/netguru/heroes-api/stargazers
+[issues-shield]: https://img.shields.io/github/issues/netguru/heroes-api
+[issues-url]: https://github.com/netguru/heroes-api/issues
+[license-shield]: https://img.shields.io/github/license/netguru/heroes-api
+[license-url]: https://github.com/netguru/heroes-api/blob/master/LICENSE.txt
+[product-screenshot]: images/screenshot.png
