@@ -1,40 +1,120 @@
-# Frontend New Recruitment Task - API
-Built with Prisma, MySQL, GraphQL/REST
-
-# First run
-
-## Run in terminal 
-* `docker-compose up -d`
-
-* `npm run generate`
-
-* `npm run deploy`
-
-* `npm run seed`
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
 
 
-## Run in terminal 
-* For REST `npm run start:rest`
-* For GraphQL `npm run start:graphql`
+
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://github.com/netguru/fe-recru-api">
+    <img src="https://ui-ex.com/images/deadpool-svg-head-2.png" alt="Logo" width="80" height="80">
+  </a>
+
+  <h3 align="center">Heroes API</h3>
+
+  <p align="center">
+A backend appliaction built with Prisma, Docker and Node.js
+    <br />
+    <a href="https://github.com/netguru/fe-recru-api/wiki"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/netguru/fe-recru-api/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/netguru/fe-recru-api/issues">Request Feature</a>
+  </p>
+</p>
 
 
-## Run as Developer 
-* For REST `npm run dev:rest`
-* For GraphQL `npm run dev:graphql`
 
-## Deploy new schema (after modifying `datamodel.prisma`)
-`prisma deploy`
+<!-- TABLE OF CONTENTS -->
+## Table of Contents
 
-## AFTER MODIFYING `prisma.yml` RUN `npm run generate`!
+* [Built With](#built-with)
+* [Getting Started](#getting-started)
+  * [Initial setup](#initial-setup)
+  * [Installation](#installation)
+  * [Running the project](#running-the-project)
+* [Authors](#authors)
+* [License](#license)
 
-## GRAPHQL ONLY
-### Generate Types for schemats
-`npm run deploy`
 
 
-## Documentation
-### REST
-https://github.com/netguru/fe-recru-api/wiki
+## Built With
+This application was built with:
+* [Prisma](https://www.prisma.io/)
+* [Node.js](https://node.js.org/)
+* [Docker](https://www.docker.com/)
 
-### GraphQL
-Playground is available on localhost:4000
+
+
+<!-- GETTING STARTED -->
+## Getting Started
+
+Before you started, make sure you have a Docker installed on your local machine.
+
+### Initial setup 
+
+This is an example of how to list things you need to use the software and how to install them.
+
+* Launch Docker compose to run Prisma's nad MySQL's images.
+  ```docker-compose up -d```
+
+* Generate prisma instance based on datamodel
+  ```npm run generate```
+
+* Deploy database schema into the MySQL database
+  ```npm run deploy```
+
+* Seed the database with default data
+  ```npm run seed```
+
+### Running the project
+#### For REST API
+
+* Run in terminal:
+  ```npm run start:rest```
+
+#### For GraphQL
+
+* Run in terminal
+  ```npm run start:graphql```
+
+
+#### Important
+
+* Deploy new schema (after modifying `datamodel.prisma`)
+  ```prisma deploy```
+
+* AFTER MODIFYING `prisma.yml` 
+  ```npm run generate```
+
+
+<!-- Authors -->
+## Authors
+
+1. <a href="https://github.com/qmixi" target="_blank">Piotr Kumorek</a>
+2. <a href="https://github.com/SebastianStj" target="_blank">Sebastian Stój</a>
+3. <a href="https://github.com/slawomirkolodziej" target="_blank">Sławek Kołodziej</a>
+4. <a href="https://github.com/Kamieniu" target="_blank">Franciszek Stodulski</a>
+
+<!-- LICENSE -->
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=flat-square
+[contributors-url]: https://github.com/netguru/fe-recru-api/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=flat-square
+[forks-url]: https://github.com/netguru/fe-recru-api/network/members
+[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=flat-square
+[stars-url]: https://github.com/netguru/fe-recru-api/stargazers
+[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=flat-square
+[issues-url]: https://github.com/netguru/fe-recru-api/issues
+[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=flat-square
+[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
+[product-screenshot]: images/screenshot.png
