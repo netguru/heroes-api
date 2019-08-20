@@ -1,4 +1,3 @@
-generated
 node_modules/
+Dockerfile
 schema-compiled.graphql
-src/.DS_Store

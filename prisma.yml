@@ -1,10 +1,11 @@
-endpoint: http://localhost:4466
+endpoint: 'http://localhost:4466'
 datamodel:
-  - ./datamodel/person.prisma
-  - ./datamodel/job.prisma
+  - ./datamodel/hero.prisma
+  - ./datamodel/type.prisma
+  - ./datamodel/avatar.prisma
 
 seed:
-  run: ts-node ./src/seed/index.ts
+  run: ts-node ./seed.ts
 
 generate:
   - generator: typescript-client

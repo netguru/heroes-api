@@ -1,0 +1,12 @@
+type Type {
+  id: ID!
+  name: String!
+}
+
+type Mutation {
+  createNewType(name: String!): Type!
+}
+
+type Query {
+  types: [Type!]!
+}

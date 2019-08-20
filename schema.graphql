@@ -1,2 +1,3 @@
-#import Query.*, Mutation.*, * from './src/graphql/Person/person-schema.graphql'
-#import Query.*, Mutation.*, * from './src/graphql/Job/job-schema.graphql'
+#import Query.*, Mutation.*, * from './src/graphql/Hero/hero-schema.graphql'
+#import Query.*, Mutation.*, * from './src/graphql/Type/type-schema.graphql'
+#import Query.*, Mutation.*, * from './src/graphql/Avatar/avatar-schema.graphql'
