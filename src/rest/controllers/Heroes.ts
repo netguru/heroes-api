@@ -1,10 +1,10 @@
 import { prisma } from '../../../generated/prisma-client';
 
 export async function getAllHeroes(req, res) {
-  const { first, skip } = req.body;
+  const { first, skip } = req.query;
   const heroes = await prisma.heroes({
-    first,
-    skip,
+    first: parseInt(first),
+    skip: parseInt(skip),
   });
 
   res.send(heroes);
