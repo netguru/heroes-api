@@ -1,5 +1,6 @@
 import * as bodyParser from 'body-parser';
 import * as express from 'express';
+import * as cors from 'cors';
 
 import {
   createHero,
@@ -24,6 +25,8 @@ import {
 } from './rest/controllers/Avatars';
 
 const app = express();
+
+app.use(cors());
 
 const PORT = 4000;
 
@@ -52,5 +55,5 @@ app.delete('/avatars/:id', deleteAvatar);
 app.put('/avatars/:id', updateAvatar);
 
 app.listen(PORT, () =>
-  console.log(`Server is listening on http://localhost:${PORT}`),
+  console.log(`Server is listening on http://localhost:${PORT}`)
 );
