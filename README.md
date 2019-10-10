@@ -52,18 +52,18 @@ This application was built with:
 
 ## Getting Started
 
-Before you start, make sure you have [Docker](https://docs.docker.com/install/), [Prisma CLI](https://www.prisma.io/docs/1.34/get-started/01-setting-up-prisma-new-database-JAVASCRIPT-a002/#install-the-prisma-cli), and [Node](https://nodejs.org/en/) installed on your local machine.
+Before you start, make sure you have [Docker](https://docs.docker.com/install/) and [Node](https://nodejs.org/en/) installed on your local machine.
 
 ### Initial setup
 
 1. Launch Docker compose to run Prisma's and MySQL's images.
    `docker-compose up -d`
 
-2. Generate prisma instance based on datamodel.
-   `npm run generate`
-
-3. Install all the dependencies.
+2. Install all the dependencies.
    `npm install`
+
+3. Generate prisma instance based on datamodel.
+   `npm run generate`
 
 4. Deploy database schema into the MySQL database.
    `npm run deploy`
