@@ -29,11 +29,14 @@ A backend appliaction built with Prisma, Docker and Node.js
 
 ## Table of Contents
 
+- [Table of Contents](#table-of-contents)
 - [Built With](#built-with)
 - [Getting Started](#getting-started)
   - [Initial setup](#initial-setup)
-  - [Installation](#installation)
   - [Running the project](#running-the-project)
+    - [For REST API](#for-rest-api)
+    - [For GraphQL](#for-graphql)
+    - [Important](#important)
 - [Authors](#authors)
 - [License](#license)
 
@@ -49,21 +52,24 @@ This application was built with:
 
 ## Getting Started
 
-Before you start, make sure you have a Docker installed on your local machine.
+Before you start, make sure you have [Docker](https://docs.docker.com/install/) and [Node](https://nodejs.org/en/) installed on your local machine.
 
 ### Initial setup
 
-- Launch Docker compose to run Prisma's nad MySQL's images.
-  `docker-compose up -d`
+1. Launch Docker compose to run Prisma's and MySQL's images.
+   `docker-compose up -d`
 
-- Generate prisma instance based on datamodel
-  `npm run generate`
+2. Install all the dependencies.
+   `npm install`
 
-- Deploy database schema into the MySQL database
-  `npm run deploy`
+3. Generate prisma instance based on datamodel.
+   `npm run generate`
 
-- Seed the database with default data
-  `npm run seed`
+4. Deploy database schema into the MySQL database.
+   `npm run deploy`
+
+5. Seed the database with default data.
+   `npm run seed`
 
 ### Running the project
 

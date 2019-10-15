@@ -122,7 +122,7 @@ export const SEED_AVATARS: IAvatar[] = [
       'https://drive.google.com/open?id=1DlVO-8KIKQHij0l9kPfAdiYeNXYKi_nP',
   },
   {
-    alt: 'Haloween Jason',
+    alt: 'Halloween Jason',
     avatar_url:
       'https://drive.google.com/open?id=1uJ7rIOhsoJakup7KyuMEvpAcCP2dc7OX',
   },
