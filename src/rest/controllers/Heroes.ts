@@ -1,11 +1,14 @@
 import { prisma } from '../../../generated/prisma-client';
+import { heroesWithTypes } from '../../utils/fragments';
 
 export async function getAllHeroes(req, res) {
   const { first, skip } = req.query;
-  const heroes = await prisma.heroes({
-    first: parseInt(first),
-    skip: parseInt(skip),
-  });
+  const heroes = await prisma
+    .heroes({
+      first: parseInt(first),
+      skip: parseInt(skip),
+    })
+    .$fragment(heroesWithTypes);
 
   res.send(heroes);
 }
@@ -13,15 +16,12 @@ export async function getAllHeroes(req, res) {
 export async function getHeroById(req, res) {
   try {
     const { id } = req.params;
-    const hero = await prisma.hero({
-      id,
-    });
-    const type = await prisma
+    const hero = await prisma
       .hero({
         id,
       })
-      .type();
-    res.send({ ...hero, type });
+      .$fragment(heroesWithTypes);
+    res.send(hero);
   } catch (e) {
     res.status(404).send(e.message);
   }
