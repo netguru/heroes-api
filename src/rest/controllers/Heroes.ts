@@ -66,7 +66,7 @@ export async function updateHero(req, res) {
   try {
     const { id } = req.params;
     const {
-      body: { avatar_url, full_name, type },
+      body: { avatar_url, full_name, type, description },
     } = req;
 
     const connect = type
@@ -82,6 +82,7 @@ export async function updateHero(req, res) {
         avatar_url,
         full_name,
         type: connect,
+        description,
       },
       where: {
         id,
