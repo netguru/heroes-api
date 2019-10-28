@@ -1,98 +1,104 @@
 import { IHero } from '@interface/hero';
 
+import * as dotenv from 'dotenv';
+
+dotenv.config();
+
+const { HOST, PORT } = process.env;
+
 export const SEED_HUMAN_HERO: IHero[] = [
   {
     full_name: 'Batman',
-    avatar_url:
-      'http://drive.google.com/uc?export=view&id=1qtmU6m0upQcvSw6cbUjFaXAagjQBgH6_',
+    avatar_url: `${HOST}${PORT}/assets/batman.png`,
     type: '#ID',
-    description: 'Sed nec venenatis felis. Aenean efficitur et massa auctor auctor.'
+    description:
+      'Sed nec venenatis felis. Aenean efficitur et massa auctor auctor.',
   },
   {
     full_name: 'Wrestler',
-    avatar_url:
-      'http://drive.google.com/uc?export=view&id=1LWmwYp38zlVWb9_eTzAXDu-I4HYhtSc4',
+    avatar_url: `${HOST}${PORT}/assets/wrestler.png`,
     type: '#ID',
-    description: 'Sed nec venenatis felis. Aenean efficitur et massa auctor auctor.'
+    description:
+      'Sed nec venenatis felis. Aenean efficitur et massa auctor auctor.',
   },
   {
     full_name: 'Donald Trump',
-    avatar_url:
-      'http://drive.google.com/uc?export=view&id=1yvGyOTSwwdhPJw6wgVtcqo68C1NafRBt',
+    avatar_url: `${HOST}${PORT}/assets/trump.png`,
     type: '#ID',
-    description: 'Sed nec venenatis felis. Aenean efficitur et massa auctor auctor.'
+    description:
+      'Sed nec venenatis felis. Aenean efficitur et massa auctor auctor.',
   },
   {
     full_name: 'Harley Quinn',
-    avatar_url:
-      'http://drive.google.com/uc?export=view&id=1sCL0diquPe4zwK2-hOB_VT8RbC9ctJWx',
+    avatar_url: `${HOST}${PORT}/assets/harley_queen.png`,
     type: '#ID',
-    description: 'Sed nec venenatis felis. Aenean efficitur et massa auctor auctor.'
+    description:
+      'Sed nec venenatis felis. Aenean efficitur et massa auctor auctor.',
   },
 
   {
     full_name: 'Albert Einstain',
-    avatar_url:
-      'http://drive.google.com/uc?export=view&id=146lkHryDEBueTCFCemf5UJnis9-EqvTy',
+    avatar_url: `${HOST}${PORT}/assets/einstein.png`,
     type: '#ID',
-    description: 'Sed nec venenatis felis. Aenean efficitur et massa auctor auctor.'
+    description:
+      'Sed nec venenatis felis. Aenean efficitur et massa auctor auctor.',
   },
   {
     full_name: 'Ozzy',
-    avatar_url:
-      'http://drive.google.com/uc?export=view&id=1Flg8fwMEPTPMJ9zB-juoUdBIqk9FsG9s',
+    avatar_url: `${HOST}${PORT}/assets/ozzy.png`,
     type: '#ID',
-    description: 'Sed nec venenatis felis. Aenean efficitur et massa auctor auctor.'
+    description:
+      'Sed nec venenatis felis. Aenean efficitur et massa auctor auctor.',
   },
 ];
 
 export const SEED_PLANT_HERO: IHero[] = [
   {
     full_name: 'The Cactus',
-    avatar_url:
-      'http://drive.google.com/uc?export=view&id=1V11x2ZQHpFn-NhDtDCtNKf8DEL6S_8Qa',
+    avatar_url: `${HOST}${PORT}/assets/cactus.png`,
     type: '#ID',
-    description: 'Quisque diam sapien, euismod sed ornare feugiat, vulputate nec tellus.'
+    description:
+      'Quisque diam sapien, euismod sed ornare feugiat, vulputate nec tellus.',
   },
   {
     full_name: 'The Avocado',
-    avatar_url:
-      'http://drive.google.com/uc?export=view&id=1qmmkLY40DBrNLw6eDL1l8EazvFB9vAZ3',
+    avatar_url: `${HOST}${PORT}/assets/avocado.png`,
     type: '#ID',
-    description: 'Quisque diam sapien, euismod sed ornare feugiat, vulputate nec tellus.'
+    description:
+      'Quisque diam sapien, euismod sed ornare feugiat, vulputate nec tellus.',
   },
 ];
 
 export const SEED_ANIMAL_HERO: IHero[] = [
   {
     full_name: 'Sluggard',
-    avatar_url:
-      'http://drive.google.com/uc?export=view&id=18foSdGGLFVNVHqRZIa_VyclfqgLViJlk',
+    avatar_url: `${HOST}${PORT}/assets/sluggard.png`,
     type: '#ID',
-    description: 'Quisque diam sapien, euismod sed ornare feugiat, vulputate nec tellus.'
+    description:
+      'Quisque diam sapien, euismod sed ornare feugiat, vulputate nec tellus.',
   },
   {
     full_name: 'Cool Sheep',
-    avatar_url:
-      'http://drive.google.com/uc?export=view&id=1tR6ebctliEQjsdNgwHCBJIs7KJUqh_dC',
+    avatar_url: `${HOST}${PORT}/assets/sheep.png`,
     type: '#ID',
-    description: 'Quisque diam sapien, euismod sed ornare feugiat, vulputate nec tellus.'
+    description:
+      'Quisque diam sapien, euismod sed ornare feugiat, vulputate nec tellus.',
   },
 ];
 
 export const SEED_OTHER_HERO: IHero[] = [
   {
     full_name: 'Shelba',
-    avatar_url:
-      'http://drive.google.com/uc?export=view&id=1dNs4nKma8WZ-lAnwMB3oxGFYA0H9c-g0',
+    avatar_url: `${HOST}${PORT}/assets/spider.png`,
     type: '#ID',
-    description: 'Pellentesque efficitur, nisl et pulvinar iaculis, lacus eros faucibus leo, quis vestibulum quam velit ac sapien.'
+    description:
+      'Pellentesque efficitur, nisl et pulvinar iaculis, lacus eros faucibus leo, quis vestibulum quam velit ac sapien.',
   },
   {
     full_name: 'UFO',
-    avatar_url:
-      'http://drive.google.com/uc?export=view&id=1-RgG25oomcXwLnvNvJ9kNnRs-_5GEkWF',
+    avatar_url: `${HOST}${PORT}/assets/ufo.png`,
     type: '#ID',
-    description: 'Pellentesque efficitur, nisl et pulvinar iaculis, lacus eros faucibus leo, quis vestibulum quam velit ac sapien.'
+    description:
+      'Pellentesque efficitur, nisl et pulvinar iaculis, lacus eros faucibus leo, quis vestibulum quam velit ac sapien.',
   },
 ];
