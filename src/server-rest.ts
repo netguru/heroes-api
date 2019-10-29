@@ -35,6 +35,7 @@ config();
 const { HOST, PORT } = process.env;
 
 app.use(json());
+app.use('/assets', express.static('assets'));
 
 app.get('/', (req: Request, res: Response) => {
   res.send({
