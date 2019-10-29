@@ -1,8 +1,8 @@
 import { IAvatar } from '@interface/avatar';
 
-import * as dotenv from 'dotenv';
+import { config } from 'dotenv';
 
-dotenv.config();
+config();
 
 const { HOST, PORT } = process.env;
 

@@ -1,8 +1,8 @@
 import { IHero } from '@interface/hero';
 
-import * as dotenv from 'dotenv';
+import { config } from 'dotenv';
 
-dotenv.config();
+config();
 
 const { HOST, PORT } = process.env;
 
