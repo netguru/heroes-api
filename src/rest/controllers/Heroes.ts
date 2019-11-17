@@ -77,17 +77,19 @@ export async function updateHero(req, res) {
         }
       : {};
 
-    const updatedHero = await prisma.updateHero({
-      data: {
-        avatar_url,
-        full_name,
-        type: connect,
-        description,
-      },
-      where: {
-        id,
-      },
-    });
+    const updatedHero = await prisma
+      .updateHero({
+        data: {
+          avatar_url,
+          full_name,
+          type: connect,
+          description,
+        },
+        where: {
+          id,
+        },
+      })
+      .$fragment(heroesWithTypes);
     res.send(updatedHero);
   } catch (e) {
     res.status(400).send(e.message);
