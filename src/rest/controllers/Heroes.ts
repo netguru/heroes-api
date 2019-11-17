@@ -62,6 +62,23 @@ export async function deleteHero(req, res) {
   }
 }
 
+export async function getRandomHero(req, res) {
+  try {
+    const count = await prisma
+      .heroesConnection()
+      .aggregate()
+      .count();
+    const skip = Math.floor(Math.random() * count);
+
+    const randomHero = await prisma
+      .heroes({ skip, first: 1 })
+      .$fragment(heroesWithTypes);
+    res.send(randomHero);
+  } catch (e) {
+    res.status(400).send(e.message);
+  }
+}
+
 export async function updateHero(req, res) {
   try {
     const { id } = req.params;

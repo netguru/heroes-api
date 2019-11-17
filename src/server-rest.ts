@@ -7,6 +7,7 @@ import {
   deleteHero,
   getAllHeroes,
   getHeroById,
+  getRandomHero,
   updateHero,
 } from './rest/controllers/Heroes';
 
@@ -39,6 +40,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/heroes', getAllHeroes);
+app.get('/heroes/random', getRandomHero);
 app.get('/heroes/:id', getHeroById);
 app.post('/heroes', createHero);
 app.delete('/heroes/:id', deleteHero);
