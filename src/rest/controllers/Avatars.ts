@@ -1,12 +1,13 @@
+import { Request, Response } from 'express';
 import { prisma } from '../../../generated/prisma-client';
 
-export async function getAllAvatars(req, res) {
+export async function getAllAvatars(req: Request, res: Response) {
   const avatars = await prisma.avatars();
 
   res.send(avatars);
 }
 
-export async function createAvatar(req, res) {
+export async function createAvatar(req: Request, res: Response) {
   const {
     body: { alt, avatar_url },
   } = req;
@@ -27,7 +28,7 @@ export async function createAvatar(req, res) {
   }
 }
 
-export async function deleteAvatar(req, res) {
+export async function deleteAvatar(req: Request, res: Response) {
   try {
     const { id } = req.params;
     const deletedAvatar = await prisma.deleteAvatar({
@@ -39,7 +40,7 @@ export async function deleteAvatar(req, res) {
   }
 }
 
-export async function updateAvatar(req, res) {
+export async function updateAvatar(req: Request, res: Response) {
   try {
     const { id } = req.params;
     const {

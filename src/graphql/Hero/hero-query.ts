@@ -1,10 +1,21 @@
 import { Context } from '@interface/prisma';
 
+interface HeroesProps {
+  type_id: string;
+  name_query: string;
+  skip: number;
+  first: number;
+}
+
+interface HeroProps {
+  id: string;
+}
+
 export const heroQuery = {
   heroes: async (
-    parent,
-    { type_id, name_query, skip, first },
-    { prisma: { heroes } }: Context,
+    parent: any,
+    { type_id, name_query, skip, first }: HeroesProps,
+    { prisma: { heroes } }: Context
   ) => {
     return await heroes({
       where: {
@@ -18,7 +29,11 @@ export const heroQuery = {
       first,
     });
   },
-  hero: async (parent, { id }, { prisma: { hero } }: Context) => {
+  hero: async (
+    parent: any,
+    { id }: HeroProps,
+    { prisma: { hero } }: Context
+  ) => {
     return await hero({
       id,
     });

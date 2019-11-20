@@ -1,14 +1,18 @@
 {
-    "compilerOptions": {
-        "lib": ["es2016", "esnext.asynciterable"],
-        "baseUrl": "./",
-        "paths": {
-            "@interface/*": ["src/types/*"],
-            "@prisma/*": ["generated/prisma-client"]
-        },
-        "typeRoots": [
-            "./src/types/",
-            "./node_modules/@types/"
-        ]
-    }
+  "compilerOptions": {
+    "lib": ["es2016", "esnext.asynciterable"],
+    "baseUrl": "./",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "target": "es6",
+    "noImplicitAny": true,
+    "paths": {
+      "@interface/*": ["src/types/*"]
+    },
+    "typeRoots": [
+      "./src/types/",
+      "./node_modules/@types/",
+      "./generated/prisma-client/index.ts"
+    ]
+  }
 }

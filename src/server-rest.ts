@@ -1,6 +1,6 @@
-import * as bodyParser from 'body-parser';
-import * as express from 'express';
-import * as cors from 'cors';
+import { json } from 'body-parser';
+import express, { Request, Response } from 'express';
+import cors from 'cors';
 
 import {
   createHero,
@@ -31,9 +31,9 @@ app.use(cors());
 
 const PORT = 4000;
 
-app.use(bodyParser.json());
+app.use(json());
 
-app.get('/', (req, res) => {
+app.get('/', (req: Request, res: Response) => {
   res.send({
     message: 'Server is running',
   });
