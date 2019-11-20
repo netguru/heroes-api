@@ -1,12 +1,13 @@
+import { Request, Response } from 'express';
 import { prisma } from '../../../generated/prisma-client';
 
-export async function getAllTypes(req, res) {
+export async function getAllTypes(req: Request, res: Response) {
   const types = await prisma.types();
 
   res.send(types);
 }
 
-export async function createType(req, res) {
+export async function createType(req: Request, res: Response) {
   const {
     body: { name },
   } = req;
@@ -26,7 +27,7 @@ export async function createType(req, res) {
   }
 }
 
-export async function deleteType(req, res) {
+export async function deleteType(req: Request, res: Response) {
   try {
     const { id } = req.params;
     const deletedType = await prisma.deleteType({
@@ -38,7 +39,7 @@ export async function deleteType(req, res) {
   }
 }
 
-export async function updateType(req, res) {
+export async function updateType(req: Request, res: Response) {
   try {
     const { id } = req.params;
     const {

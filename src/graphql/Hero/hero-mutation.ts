@@ -1,10 +1,20 @@
 import { Context } from '@interface/prisma';
 import { ErrorHandler } from '../../utils';
+import {
+  HeroCreateInput,
+  HeroUpdateInput,
+} from '../../../generated/prisma-client';
+
+type UpdateHeroProps = HeroUpdateInput & { id: string; type_id: string };
+type CreateNewHeroProps = HeroCreateInput & { type_id: string };
+interface DeleteHeroProps {
+  id: string;
+}
 
 export const heroMutation = {
   createNewHero: async (
-    parent,
-    { full_name, type_id, avatar_url, description },
+    parent: any,
+    { full_name, type_id, avatar_url, description }: CreateNewHeroProps,
     { prisma: { createHero }, response }: Context
   ) => {
     if (full_name && type_id && avatar_url && description) {
@@ -24,8 +34,8 @@ export const heroMutation = {
   },
 
   updateHero: async (
-    parent,
-    { id, full_name, avatar_url, type_id, description },
+    parent: any,
+    { id, full_name, avatar_url, type_id, description }: UpdateHeroProps,
     { prisma: { updateHero }, response }: Context
   ) => {
     if (id) {
@@ -62,8 +72,8 @@ export const heroMutation = {
   },
 
   deleteHero: async (
-    parent,
-    { id },
+    parent: any,
+    { id }: DeleteHeroProps,
     { prisma: { deleteHero }, response }: Context
   ) => {
     if (id) {

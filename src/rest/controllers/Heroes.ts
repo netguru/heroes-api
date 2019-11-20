@@ -1,7 +1,8 @@
-import { prisma } from '../../../generated/prisma-client';
 import { heroesWithTypes } from '../../utils/fragments';
+import { Request, Response } from 'express';
+import { prisma } from '../../../generated/prisma-client';
 
-export async function getAllHeroes(req, res) {
+export async function getAllHeroes(req: Request, res: Response) {
   const { first, skip } = req.query;
   const heroes = await prisma
     .heroes({
@@ -13,7 +14,7 @@ export async function getAllHeroes(req, res) {
   res.send(heroes);
 }
 
-export async function getHeroById(req, res) {
+export async function getHeroById(req: Request, res: Response) {
   try {
     const { id } = req.params;
     const hero = await prisma
@@ -27,7 +28,7 @@ export async function getHeroById(req, res) {
   }
 }
 
-export async function createHero(req, res) {
+export async function createHero(req: Request, res: Response) {
   const {
     body: { avatar_url, full_name, type, description },
   } = req;
@@ -50,7 +51,7 @@ export async function createHero(req, res) {
   }
 }
 
-export async function deleteHero(req, res) {
+export async function deleteHero(req: Request, res: Response) {
   try {
     const { id } = req.params;
     const deletedHero = await prisma.deleteHero({
@@ -62,7 +63,7 @@ export async function deleteHero(req, res) {
   }
 }
 
-export async function getRandomHero(req, res) {
+export async function getRandomHero(req: Request, res: Response) {
   try {
     const count = await prisma
       .heroesConnection()
@@ -79,7 +80,7 @@ export async function getRandomHero(req, res) {
   }
 }
 
-export async function updateHero(req, res) {
+export async function updateHero(req: Request, res: Response) {
   try {
     const { id } = req.params;
     const {

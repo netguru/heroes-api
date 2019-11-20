@@ -1,10 +1,17 @@
+import {
+  AvatarCreateInput,
+  AvatarUpdateInput,
+  AvatarWhereUniqueInput,
+} from '../../../generated/prisma-client';
 import { Context } from '@interface/prisma';
+
+type UpdateAvatarProps = AvatarUpdateInput & { id: string };
 
 export const avatarMutation = {
   createNewAvatar: async (
-    parent,
-    { avatar_url, alt },
-    { prisma: { createAvatar }, response }: Context,
+    parent: any,
+    { avatar_url, alt }: AvatarCreateInput,
+    { prisma: { createAvatar }, response }: Context
   ) => {
     if (avatar_url && alt) {
       try {
@@ -22,13 +29,13 @@ export const avatarMutation = {
   },
 
   deleteAvatar: async (
-    parent,
-    { ID },
-    { prisma: { deleteAvatar }, response }: Context,
+    parent: any,
+    { id }: AvatarWhereUniqueInput,
+    { prisma: { deleteAvatar }, response }: Context
   ) => {
-    if (ID) {
+    if (id) {
       try {
-        return await deleteAvatar({ id: ID });
+        return await deleteAvatar({ id });
       } catch (error) {
         return response.status(500).send(error.message);
       }
@@ -40,11 +47,11 @@ export const avatarMutation = {
   },
 
   updateAvatar: async (
-    parent,
-    { ID, alt, avatar_url },
-    { prisma: { updateAvatar }, response }: Context,
+    parent: any,
+    { id, alt, avatar_url }: UpdateAvatarProps,
+    { prisma: { updateAvatar }, response }: Context
   ) => {
-    if (ID && (alt || avatar_url)) {
+    if (id && (alt || avatar_url)) {
       try {
         return await updateAvatar({
           data: {
@@ -52,7 +59,7 @@ export const avatarMutation = {
             alt,
           },
           where: {
-            id: ID,
+            id,
           },
         });
       } catch (error) {

@@ -2,3 +2,4 @@ generated
 node_modules/
 schema-compiled.graphql
 src/.DS_Store
+.idea/
