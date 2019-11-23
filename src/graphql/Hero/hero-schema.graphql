@@ -28,4 +28,5 @@ type Mutation {
 type Query {
   heroes(type_id: ID, name_query: String, skip: Int, first: Int): [Hero!]!
   hero(id: ID!): Hero!
+  randomHero: Hero!
 }

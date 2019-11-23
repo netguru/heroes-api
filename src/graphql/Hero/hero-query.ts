@@ -38,4 +38,18 @@ export const heroQuery = {
       id,
     });
   },
+  randomHero: async (
+    parent: any,
+    {  }: any,
+    { prisma: { heroes, heroesConnection } }: Context
+  ) => {
+    const count = await heroesConnection()
+      .aggregate()
+      .count();
+    const skip = Math.floor(Math.random() * count);
+
+    return await heroes({ skip, first: 1 }).then(
+      oneElementArray => oneElementArray[0]
+    );
+  },
 };
