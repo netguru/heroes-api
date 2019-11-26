@@ -1,6 +1,7 @@
 import { json } from 'body-parser';
 import express, { Request, Response } from 'express';
 import cors from 'cors';
+import { config } from 'dotenv';
 
 import {
   createHero,
@@ -29,9 +30,12 @@ const app = express();
 
 app.use(cors());
 
-const PORT = 4000;
+config();
+
+const { HOST, PORT } = process.env;
 
 app.use(json());
+app.use('/assets', express.static('assets'));
 
 app.get('/', (req: Request, res: Response) => {
   res.send({
@@ -56,6 +60,4 @@ app.post('/avatars', createAvatar);
 app.delete('/avatars/:id', deleteAvatar);
 app.put('/avatars/:id', updateAvatar);
 
-app.listen(PORT, () =>
-  console.log(`Server is listening on http://localhost:${PORT}`)
-);
+app.listen(PORT, () => console.log(`Server is listening on ${HOST}${PORT}`));
