@@ -1,224 +1,151 @@
 import { IAvatar } from '@interface/avatar';
 
+import { config } from 'dotenv';
+
+config();
+
+const { HOST, PORT } = process.env;
+
 export const SEED_AVATARS: IAvatar[] = [
   {
     alt: 'St. Claus',
-    avatar_url:
-      'https://drive.google.com/open?id=1ZmwtQPqYSQUOrEmS8YP3C_7UrAHEA2Ag',
+    avatar_url: `${HOST}${PORT}/assets/santa_claus.png`,
   },
   {
     alt: 'Wrestler',
-    avatar_url:
-      'https://drive.google.com/open?id=1LWmwYp38zlVWb9_eTzAXDu-I4HYhtSc4',
+    avatar_url: `${HOST}${PORT}/assets/wrestler.png`,
   },
   {
     alt: 'UFO',
-    avatar_url:
-      'https://drive.google.com/open?id=1-RgG25oomcXwLnvNvJ9kNnRs-_5GEkWF',
+    avatar_url: `${HOST}${PORT}/assets/ufo.png`,
   },
   {
     alt: 'Donald Trump',
-    avatar_url:
-      'https://drive.google.com/open?id=1yvGyOTSwwdhPJw6wgVtcqo68C1NafRBt',
+    avatar_url: `${HOST}${PORT}/assets/trump.png`,
   },
   {
     alt: 'Harley Quinn',
-    avatar_url:
-      'https://drive.google.com/open?id=1sCL0diquPe4zwK2-hOB_VT8RbC9ctJWx',
+    avatar_url: `${HOST}${PORT}/assets/harley_queen.png`,
   },
   {
     alt: 'Shelba',
-    avatar_url:
-      'https://drive.google.com/open?id=1dNs4nKma8WZ-lAnwMB3oxGFYA0H9c-g0',
+    avatar_url: `${HOST}${PORT}/assets/spider.png`,
   },
   {
     alt: 'Sluggard',
-    avatar_url:
-      'https://drive.google.com/open?id=18foSdGGLFVNVHqRZIa_VyclfqgLViJlk',
+    avatar_url: `${HOST}${PORT}/assets/sluggard.png`,
   },
   {
     alt: 'Cool Sheep',
-    avatar_url:
-      'https://drive.google.com/open?id=1tR6ebctliEQjsdNgwHCBJIs7KJUqh_dC',
+    avatar_url: `${HOST}${PORT}/assets/sheep.png`,
   },
   {
     alt: 'Albert Einstain',
-    avatar_url:
-      'https://drive.google.com/open?id=146lkHryDEBueTCFCemf5UJnis9-EqvTy',
+    avatar_url: `${HOST}${PORT}/assets/einstein.png`,
   },
   {
     alt: 'Punk Guy',
-    avatar_url:
-      'https://drive.google.com/open?id=13TfBYiodtRiUsIJUyj0BuhxtkNto9efo',
+    avatar_url: `${HOST}${PORT}/assets/punk.png`,
   },
   {
     alt: 'Pilot Man',
-    avatar_url:
-      'https://drive.google.com/open?id=15ZLigS5bKTRw-5c42IaDqvWVulzxrfRJ',
+    avatar_url: `${HOST}${PORT}/assets/pilot.png`,
   },
   {
     alt: 'Ozzy',
-    avatar_url:
-      'https://drive.google.com/open?id=1Flg8fwMEPTPMJ9zB-juoUdBIqk9FsG9s',
+    avatar_url: `${HOST}${PORT}/assets/ozzy.png`,
   },
   {
     alt: 'Your Neighbor',
-    avatar_url:
-      'https://drive.google.com/open?id=1nKqeKyNVaFiESToO8RDZ39XlpgkV_mYD',
+    avatar_url: `${HOST}${PORT}/assets/indian_male.png`,
   },
   {
     alt: 'Noun',
-    avatar_url:
-      'https://drive.google.com/open?id=1t403e1o9URPWjws2rijZr9lKntnHzXnr',
-  },
-  {
-    alt: 'Arabian Woman',
-    avatar_url:
-      'https://drive.google.com/open?id=13c7BFbGPE1b6opWo-SfJh6koNFXa8Uwi',
-  },
-  {
-    alt: 'Arabian Man',
-    avatar_url:
-      'https://drive.google.com/open?id=1Kh_q-hfEEVgbS1el717X7p73-LE-5ZDJ',
+    avatar_url: `${HOST}${PORT}/assets/nun_sister.png`,
   },
   {
     alt: 'Marilyn Monroe',
-    avatar_url:
-      'https://drive.google.com/open?id=1NOVMFnNH1fey_2fAqnRvzjXWEKMq5f5S',
-  },
-  {
-    alt: 'Your Neighbor',
-    avatar_url:
-      'https://drive.google.com/open?id=1nKqeKyNVaFiESToO8RDZ39XlpgkV_mYD',
-  },
-  {
-    alt: 'Totaly random guy',
-    avatar_url:
-      'https://drive.google.com/open?id=1cA0icH90wTUyBTl99AtM6OzwvCM6nSAW',
-  },
-  {
-    alt: 'Indian Woman',
-    avatar_url:
-      'https://drive.google.com/open?id=18LNtHVO5E4QyHgWdn-G4HucUXU1IY_Ow',
-  },
-  {
-    alt: 'Indian Man',
-    avatar_url:
-      'https://drive.google.com/open?id=1KR0wWRX_eAhgJ_Do9CxaVSPpUTvLvK6k',
-  },
-  {
-    alt: 'Indian Man (arabic)',
-    avatar_url:
-      'https://drive.google.com/open?id=194qvGMPInfmolgmMxwIuQ0c4pKOd9SmB',
-  },
-  {
-    alt: 'Geek guy',
-    avatar_url:
-      'https://drive.google.com/open?id=1k1at2o4u-yQTxgl515SJ-mZBcQLMaKPx',
+    avatar_url: `${HOST}${PORT}/assets/marlin_monroe.png`,
   },
   {
     alt: 'Beared Hipster',
-    avatar_url:
-      'https://drive.google.com/open?id=1DlVO-8KIKQHij0l9kPfAdiYeNXYKi_nP',
+    avatar_url: `${HOST}${PORT}/assets/hipster.png`,
   },
   {
     alt: 'Halloween Jason',
-    avatar_url:
-      'https://drive.google.com/open?id=1uJ7rIOhsoJakup7KyuMEvpAcCP2dc7OX',
+    avatar_url: `${HOST}${PORT}/assets/halloween.png`,
   },
   {
     alt: 'Grandma',
-    avatar_url:
-      'https://drive.google.com/open?id=1EQp2KktYGi_pX1jGjqtM_k2Lt9ygiS4E',
-  },
-  {
-    alt: 'Redhead Girl',
-    avatar_url:
-      'https://drive.google.com/open?id=11pVIFrhzJCEJwgL5wliaD9xpEYtA_jvH',
-  },
-  {
-    alt: 'Random Girl',
-    avatar_url:
-      'https://drive.google.com/open?id=1h9EGlPvYAw9C3EcR8yHQAhTDch3oy_Hg',
-  },
-  {
-    alt: 'Young Girl',
-    avatar_url:
-      'https://drive.google.com/open?id=1pp3nqqDZ8vNKqXAiJTCxb_FcfxscT_2v',
-  },
-  {
-    alt: 'Japan Girl',
-    avatar_url:
-      'https://drive.google.com/open?id=1uDyZYs4iUHYAbnaCSaJEuncWoErllSJ7',
+    avatar_url: `${HOST}${PORT}/assets/grandma.png`,
   },
   {
     alt: 'Pencil',
-    avatar_url:
-      'https://drive.google.com/open?id=1N1AK-aUcQfnv9keYfwwbgBRyFDkog3Sm',
+    avatar_url: `${HOST}${PORT}/assets/pencil.png`,
+  },
+  {
+    alt: 'Baby Kid',
+    avatar_url: `${HOST}${PORT}/assets/baby_kid.png`,
+  },
+
+  {
+    alt: 'Japan Girl',
+    avatar_url: `${HOST}${PORT}/assets/geisha.png`,
+  },
+  {
+    alt: 'Pencil',
+    avatar_url: `${HOST}${PORT}/assets/pencil.png`,
   },
   {
     alt: 'The coffe cup',
-    avatar_url:
-      'https://drive.google.com/open?id=1nwlTWrLQKPRIrXT6teNOnE_AYEmWaXbn',
+    avatar_url: `${HOST}${PORT}/assets/coffee_zorro.png`,
   },
   {
     alt: 'Crying Cloud',
-    avatar_url:
-      'https://drive.google.com/open?id=12EhEWmuoNDN-gHR9E6hrGUjUMQJU84I3',
+    avatar_url: `${HOST}${PORT}/assets/crying_cloud.png`,
   },
   {
     alt: 'Carle Chaplin',
-    avatar_url:
-      'https://drive.google.com/open?id=1XitHe7BDtNIA15aahQBSatEaFDpts0pR',
+    avatar_url: `${HOST}${PORT}/assets/chaplin.png`,
   },
   {
     alt: 'The Cactus',
-    avatar_url:
-      'https://drive.google.com/open?id=1V11x2ZQHpFn-NhDtDCtNKf8DEL6S_8Qa',
+    avatar_url: `${HOST}${PORT}/assets/cactus.png`,
   },
   {
     alt: 'Builder Man',
-    avatar_url:
-      'https://drive.google.com/open?id=1iejqEmHWAFWGjH5voczONQ3bZhMcmIA_',
+    avatar_url: `${HOST}${PORT}/assets/builder.png`,
   },
   {
     alt: 'The Haisenberg',
-    avatar_url:
-      'https://drive.google.com/open?id=1JSuZZjZKuqqDWKUrmS3LISbUXIiSM7Vz',
+    avatar_url: `${HOST}${PORT}/assets/breaking_bad.png`,
   },
   {
     alt: 'Soviet Bear',
-    avatar_url:
-      'https://drive.google.com/open?id=1WmcpnsDposmH7xNbjg1DIO8KEpl-0ATc',
+    avatar_url: `${HOST}${PORT}/assets/bear_russian.png`,
   },
   {
     alt: 'Batman',
-    avatar_url:
-      'https://drive.google.com/open?id=1qtmU6m0upQcvSw6cbUjFaXAagjQBgH6_',
+    avatar_url: `${HOST}${PORT}/assets/batman.png`,
   },
   {
     alt: 'Sleeping kid',
-    avatar_url:
-      'https://drive.google.com/open?id=1uEkABsjUxU5oBrmrnTfZU6LYCqq1CmRg',
+    avatar_url: `${HOST}${PORT}/assets/baby_kid.png`,
   },
   {
     alt: 'The Avocado',
-    avatar_url:
-      'https://drive.google.com/open?id=1qmmkLY40DBrNLw6eDL1l8EazvFB9vAZ3',
+    avatar_url: `${HOST}${PORT}/assets/avocado.png`,
   },
   {
     alt: 'Apple Watch',
-    avatar_url:
-      'https://drive.google.com/open?id=1Q4TwTkkEJIfYzX-u3IOZ_Bi2qOajxu6N',
+    avatar_url: `${HOST}${PORT}/assets/apple_watch.png`,
   },
   {
     alt: 'Anime',
-    avatar_url:
-      'https://drive.google.com/open?id=1zn2Yb6n3UKpVoJt2gRZ1escCIIAvi6oA',
+    avatar_url: `${HOST}${PORT}/assets/anime.png`,
   },
   {
     alt: 'Afro Man',
-    avatar_url:
-      'https://drive.google.com/open?id=1AmMiB52FsW1xhO33DNq3X4GlWfi9V3ZX',
+    avatar_url: `${HOST}${PORT}/assets/afro_man.png`,
   },
 ];
