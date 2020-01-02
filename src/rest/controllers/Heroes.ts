@@ -35,12 +35,14 @@ export async function createHero(req: Request, res: Response) {
 
   if (full_name && type) {
     try {
-      const newHero = await prisma.createHero({
-        avatar_url,
-        full_name,
-        description,
-        type: { connect: { id: type } },
-      });
+      const newHero = await prisma
+        .createHero({
+          avatar_url,
+          full_name,
+          description,
+          type: { connect: { id: type } },
+        })
+        .$fragment(heroesWithTypes);
 
       res.send(newHero);
     } catch (e) {
