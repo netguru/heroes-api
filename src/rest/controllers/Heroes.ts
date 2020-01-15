@@ -34,7 +34,7 @@ export async function getHeroById(req: Request, res: Response) {
 
 export async function createHero(req: Request, res: Response) {
   const {
-    body: { avatar_url, full_name, type, description },
+    body: { avatar_url, full_name, type, description = '' },
   } = req;
 
   if (full_name && type) {
