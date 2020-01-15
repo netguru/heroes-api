@@ -22,6 +22,10 @@ export async function getHeroById(req: Request, res: Response) {
         id,
       })
       .$fragment(heroesWithTypes);
+
+    if (!hero) {
+      res.status(404).send('not found');
+    }
     res.send(hero);
   } catch (e) {
     res.status(404).send(e.message);
