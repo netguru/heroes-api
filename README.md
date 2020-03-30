@@ -8,7 +8,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/netguru/heroes-api">
-    <img src="https://ui-ex.com/images/deadpool-svg-head-2.png" alt="Logo" width="80" height="80">
+    <img src="https://raw.githubusercontent.com/netguru/heroes-api/master/assets/batman.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Heroes API</h3>
