@@ -1,17 +1,23 @@
-import { heroesWithTypes } from '../../utils/fragments';
 import { Request, Response } from 'express';
+
+import { heroesWithTypes } from '../../utils/fragments';
 import { prisma } from '../../../generated/prisma-client';
 
 export async function getAllHeroes(req: Request, res: Response) {
   const { first, skip } = req.query;
-  const heroes = await prisma
+  const data = await prisma
     .heroes({
       first: parseInt(first),
       skip: parseInt(skip),
     })
     .$fragment(heroesWithTypes);
 
-  res.send(heroes);
+  const totalCount: number = await prisma
+    .heroesConnection()
+    .aggregate()
+    .count();
+
+  res.send({ data, total_count: totalCount });
 }
 
 export async function getHeroById(req: Request, res: Response) {
