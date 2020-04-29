@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+
 import { prisma } from '../../../generated/prisma-client';
 
 export async function getAllAvatars(req: Request, res: Response) {

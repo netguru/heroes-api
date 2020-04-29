@@ -15,9 +15,13 @@ export const heroQuery = {
   heroes: async (
     parent: any,
     { type_id, name_query, skip, first }: HeroesProps,
-    { prisma: { heroes } }: Context
+    { prisma: { heroes, heroesConnection } }: Context
   ) => {
-    return await heroes({
+    const totalCount: number = await heroesConnection()
+      .aggregate()
+      .count();
+
+    const data = await heroes({
       where: {
         full_name_contains: name_query,
 
@@ -28,6 +32,11 @@ export const heroQuery = {
       skip,
       first,
     });
+
+    return {
+      data,
+      total_count: totalCount,
+    };
   },
   hero: async (
     parent: any,
