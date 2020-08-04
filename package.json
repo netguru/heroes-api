@@ -28,6 +28,7 @@
     "typescript": "^3.4.5"
   },
   "scripts": {
+    "postinstall": "npm run generate && npm run deploy && npm run seed",
     "start:rest": "ts-node ./src/server-rest.ts",
     "start:graphql": "ts-node ./src/server-graphql.ts",
     "dev:rest": "ts-node-dev --no-notify --respawn --transpileOnly ./src/server-rest.ts",
