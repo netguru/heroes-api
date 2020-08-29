@@ -8,7 +8,7 @@ import { resolvers } from './graphql/resolvers';
 
 config();
 
-const { HOST, PORT } = process.env;
+const { HOST, PORT_GQL } = process.env;
 
 const server = new GraphQLServer({
   context: (req: Request, res: Response) => ({
@@ -22,4 +22,4 @@ const server = new GraphQLServer({
 
 server.use(graphql());
 server.use('/assets', express.static('assets'));
-server.start(() => console.log(`Server is running on ${HOST}${PORT}`));
+server.start(() => console.log(`Server is running on ${HOST}${PORT_GQL}`));
