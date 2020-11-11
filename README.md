@@ -14,7 +14,7 @@
   <h3 align="center">Heroes API</h3>
 
   <p align="center">
-A backend appliaction built with Prisma, Docker and Node.js
+A backend application built with Prisma, Docker and Node.js
     <br />
     <a href="https://github.com/netguru/heroes-api/wiki"><strong>Explore the docs »</strong></a>
     <br />
