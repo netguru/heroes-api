@@ -31,8 +31,9 @@ export async function getHeroById(req: Request, res: Response) {
 
     if (!hero) {
       res.status(404).send('not found');
+    } else {
+      res.send(hero);
     }
-    res.send(hero);
   } catch (e) {
     res.status(404).send(e.message);
   }
