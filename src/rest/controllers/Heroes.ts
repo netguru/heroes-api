@@ -1,6 +1,10 @@
 import { Request, Response } from 'express';
 
 import { heroesWithTypes } from '../../utils/fragments';
+import {
+  getMissingFields,
+  getMissingFieldsErrorText,
+} from '../../utils/error-handler';
 import { prisma } from '../../../generated/prisma-client';
 
 export async function getAllHeroes(req: Request, res: Response) {
@@ -44,7 +48,9 @@ export async function createHero(req: Request, res: Response) {
     body: { avatar_url, full_name, type, description = '' },
   } = req;
 
-  if (full_name && type) {
+  const missingFields = getMissingFields(req.body);
+
+  if (!missingFields.length) {
     try {
       const newHero = await prisma
         .createHero({
@@ -60,7 +66,7 @@ export async function createHero(req: Request, res: Response) {
       res.status(400).send(e.message);
     }
   } else {
-    res.status(500).send('full_name and type are required');
+    res.status(422).send(getMissingFieldsErrorText(missingFields));
   }
 }
 
@@ -94,35 +100,41 @@ export async function getRandomHero(req: Request, res: Response) {
 }
 
 export async function updateHero(req: Request, res: Response) {
-  try {
-    const { id } = req.params;
-    const {
-      body: { avatar_url, full_name, type, description },
-    } = req;
+  const { id } = req.params;
+  const {
+    body: { avatar_url, full_name, type, description },
+  } = req;
 
-    const connect = type
-      ? {
-          connect: {
-            id: type,
+  const missingFields = getMissingFields(req.body);
+
+  if (!missingFields.length) {
+    try {
+      const connect = type
+        ? {
+            connect: {
+              id: type,
+            },
+          }
+        : {};
+
+      const updatedHero = await prisma
+        .updateHero({
+          data: {
+            avatar_url,
+            full_name,
+            type: connect,
+            description,
           },
-        }
-      : {};
-
-    const updatedHero = await prisma
-      .updateHero({
-        data: {
-          avatar_url,
-          full_name,
-          type: connect,
-          description,
-        },
-        where: {
-          id,
-        },
-      })
-      .$fragment(heroesWithTypes);
-    res.send(updatedHero);
-  } catch (e) {
-    res.status(400).send(e.message);
+          where: {
+            id,
+          },
+        })
+        .$fragment(heroesWithTypes);
+      res.send(updatedHero);
+    } catch (e) {
+      res.status(400).send(e.message);
+    }
+  } else {
+    res.status(422).send(getMissingFieldsErrorText(missingFields));
   }
 }
