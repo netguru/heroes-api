@@ -32,6 +32,7 @@ A backend application built with Prisma, Docker and Node.js
 - [Table of Contents](#table-of-contents)
 - [Built With](#built-with)
 - [Getting Started](#getting-started)
+  - [Documentation](#documentation)
   - [Initial setup](#initial-setup)
   - [Running the project](#running-the-project)
     - [For REST API](#for-rest-api)
@@ -53,6 +54,10 @@ This application was built with:
 ## Getting Started
 
 Before you start, make sure you have [Docker](https://docs.docker.com/install/) and [Node](https://nodejs.org/en/) installed on your local machine.
+
+### Documentation
+
+Heroes API documention can be found [here](https://github.com/netguru/heroes-api/wiki).
 
 ### Initial setup
 
