@@ -18,7 +18,7 @@ services:
             user: root
             password: prisma
   mysql:
-    image: mysql:5.7
+    image: mysql/mysql-server:8.0.23
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: prisma
