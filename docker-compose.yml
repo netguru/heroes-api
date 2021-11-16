@@ -4,8 +4,9 @@ services:
     image: mysql:8
     restart: always
     environment:
-      MYSQL_ROOT_USER: root
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_USER: $DATABASE_USER
+      MYSQL_ROOT_PASSWORD: $DATABASE_PASSWORD
+      MYSQL_DATABASE: $DATABASE_NAME
     volumes:
       - mysql:/var/lib/mysql
 
@@ -21,6 +22,12 @@ services:
       - mysql
     ports:
       - 3000:3000
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
 
 volumes:
   mysql: ~
