@@ -20,4 +20,9 @@ export class TypesService {
     const tag = await this.repository.findOneOrFail({ id });
     return this.repository.save({ ...tag, ...dto });
   }
+
+  async delete(id: number) {
+    const result = await this.repository.delete({ id });
+    return { success: result.affected > 0 };
+  }
 }

@@ -1,4 +1,12 @@
-import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+} from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { TypesService } from './types.service';
 import { Type } from './entities';
@@ -22,5 +30,10 @@ export class TypesController {
   @Put(':id')
   update(@Param('id') id: number, @Body() updateTagDto: UpdateTagDto) {
     return this.typesService.update(id, updateTagDto);
+  }
+
+  @Delete(':id')
+  delete(@Param('id') id: number) {
+    return this.typesService.delete(id);
   }
 }
