@@ -1,5 +1,0 @@
-type Avatar {
-  id: ID! @id
-  alt: String! @defalut(value: "Image")
-  avatar_url: String!
-}
