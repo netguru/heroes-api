@@ -1,4 +1,12 @@
-import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+} from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { AvatarsService } from './avatars.service';
 import { CreateAvatarDto, UpdateAvatarDto } from './dtos';
@@ -25,5 +33,10 @@ export class AvatarsController {
     @Body() updateAvatarDto: UpdateAvatarDto,
   ): Promise<Avatar> {
     return this.avatarsService.update(id, updateAvatarDto);
+  }
+
+  @Delete(':id')
+  async delete(@Param('id') id: number) {
+    return this.avatarsService.delete(id);
   }
 }
