@@ -3,8 +3,8 @@ import { Type } from '../../types';
 
 @Entity()
 export class Hero {
-  @PrimaryGeneratedColumn()
-  id: number;
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
 
   @Column()
   full_name: string;

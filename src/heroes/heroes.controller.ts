@@ -3,58 +3,63 @@ import {
   Controller,
   Delete,
   Get,
+  HttpCode,
+  HttpStatus,
   Param,
   Post,
   Put,
   Query,
 } from '@nestjs/common';
-import { ApiTags } from '@nestjs/swagger';
-import { Hero } from './entities';
+import { ApiDefaultResponse, ApiExtraModels, ApiTags } from '@nestjs/swagger';
+import { ApiPaginatedResponse } from '../decorators';
+import { PaginatedDto, PaginateOptionsDto } from '../dtos';
 import { HeroesService } from './heroes.service';
-import {
-  SearchOptionsDto,
-  PaginatedResultDto,
-  CreateHeroDto,
-  UpdateHeroDto,
-} from './dtos';
+import { CreateHeroDto, UpdateHeroDto, HeroDto } from './dtos';
 
 @Controller('heroes')
 @ApiTags('heroes')
+@ApiExtraModels(PaginatedDto)
 export class HeroesController {
   constructor(private heroesService: HeroesService) {}
 
   @Get()
+  @ApiPaginatedResponse(HeroDto)
   async getAll(
-    @Query() query: SearchOptionsDto,
-  ): Promise<PaginatedResultDto<Hero>> {
+    @Query() query: PaginateOptionsDto,
+  ): Promise<PaginatedDto<HeroDto>> {
     return this.heroesService.getPaginated(query);
   }
 
   @Get(':id')
-  getOne(@Param('id') id: number): Promise<Hero> {
+  @ApiDefaultResponse({ type: HeroDto })
+  getOne(@Param('id') id: HeroDto['id']): Promise<HeroDto> {
     return this.heroesService.getOne(id);
   }
 
   @Post()
-  create(@Body() createHeroDto: CreateHeroDto): Promise<Hero> {
+  @ApiDefaultResponse({ type: HeroDto })
+  create(@Body() createHeroDto: CreateHeroDto): Promise<HeroDto> {
     return this.heroesService.create(createHeroDto);
   }
 
   @Put(':id')
+  @ApiDefaultResponse({ type: HeroDto })
   update(
-    @Param('id') id: number,
+    @Param('id') id: HeroDto['id'],
     @Body() updateHeroDto: UpdateHeroDto,
-  ): Promise<Hero> {
+  ): Promise<HeroDto> {
     return this.heroesService.update(id, updateHeroDto);
   }
 
   @Delete(':id')
-  delete(@Param('id') id: number) {
-    return this.heroesService.delete(id);
+  @HttpCode(HttpStatus.ACCEPTED)
+  async delete(@Param('id') id: HeroDto['id']) {
+    await this.heroesService.delete(id);
   }
 
   @Get('/random')
-  getRandom(): Promise<Hero> {
+  @ApiDefaultResponse({ type: HeroDto })
+  getRandom(): Promise<HeroDto> {
     return this.heroesService.getRandom();
   }
 }

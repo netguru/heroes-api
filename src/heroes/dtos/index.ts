@@ -1,4 +1,3 @@
-export * from './SearchOptions.dto';
-export * from './PaginatedResult.dto';
-export * from './CreateHero.dto';
-export * from './UpdateHero.dto';
+export * from './create-hero.dto';
+export * from './update-hero.dto';
+export * from './hero.dto';

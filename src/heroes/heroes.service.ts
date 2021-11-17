@@ -1,14 +1,10 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { TypesService } from '../types';
+import { PaginatedDto, PaginateOptionsDto } from '../dtos';
 import { Hero } from './entities';
-import {
-  SearchOptionsDto,
-  PaginatedResultDto,
-  CreateHeroDto,
-  UpdateHeroDto,
-} from './dtos';
+import { CreateHeroDto, UpdateHeroDto } from './dtos';
 
 @Injectable()
 export class HeroesService {
@@ -17,7 +13,7 @@ export class HeroesService {
     private typesService: TypesService,
   ) {}
 
-  get(options: SearchOptionsDto): Promise<Hero[]> {
+  get(options: PaginateOptionsDto): Promise<Hero[]> {
     return this.heroRepository.find({
       skip: options.skip,
       take: options.first,
@@ -25,17 +21,15 @@ export class HeroesService {
     });
   }
 
-  getOne(id: number): Promise<Hero> {
-    return this.heroRepository.findOneOrFail({ id }, { relations: ['type'] });
+  getOne(id: Hero['id']): Promise<Hero | undefined> {
+    return this.heroRepository.findOne({ id }, { relations: ['type'] });
   }
 
   count(): Promise<number> {
     return this.heroRepository.count();
   }
 
-  async getPaginated(
-    options: SearchOptionsDto,
-  ): Promise<PaginatedResultDto<Hero>> {
+  async getPaginated(options: PaginateOptionsDto): Promise<PaginatedDto<Hero>> {
     const [data, totalCount] = await Promise.all([
       this.get(options),
       this.count(),
@@ -49,17 +43,24 @@ export class HeroesService {
     return this.heroRepository.save({ ...dto, type });
   }
 
-  async update(id: number, dto: UpdateHeroDto) {
+  async update(id: Hero['id'], dto: UpdateHeroDto) {
     const hero = await this.getOne(id);
+    if (!hero) {
+      throw new HttpException('Hero not found', HttpStatus.NOT_FOUND);
+    }
+
     const type = dto.type
       ? await this.typesService.getOne(dto.type)
       : hero.type;
     return this.heroRepository.save({ ...hero, ...dto, type });
   }
 
-  async delete(id: number) {
+  async delete(id: Hero['id']) {
     const result = await this.heroRepository.delete({ id });
-    return { success: result.affected > 0 };
+    if (result.affected === 0) {
+      throw new HttpException('Hero not found', HttpStatus.NOT_FOUND);
+    }
+    return true;
   }
 
   async getRandom() {
