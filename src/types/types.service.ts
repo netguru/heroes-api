@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Type } from './entities';
@@ -16,8 +16,12 @@ export class TypesService {
     return this.repository.save(dto);
   }
 
-  getOne(id: TypeDto['id']): Promise<TypeDto> {
-    return this.repository.findOneOrFail({ id });
+  async getOne(id: TypeDto['id']): Promise<TypeDto> {
+    const type = await this.repository.findOne({ id });
+    if (!type) {
+      throw new HttpException('Type not found', HttpStatus.NOT_FOUND);
+    }
+    return type;
   }
 
   async update(id: TypeDto['id'], dto: UpdateTagDto) {
@@ -27,6 +31,9 @@ export class TypesService {
 
   async delete(id: TypeDto['id']) {
     const result = await this.repository.delete({ id });
-    return { success: result.affected > 0 };
+    if (result.affected === 0) {
+      throw new HttpException('Type not found', HttpStatus.NOT_FOUND);
+    }
+    return true;
   }
 }
