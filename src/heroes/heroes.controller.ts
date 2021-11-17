@@ -10,7 +10,14 @@ import {
   Put,
   Query,
 } from '@nestjs/common';
-import { ApiDefaultResponse, ApiExtraModels, ApiTags } from '@nestjs/swagger';
+import {
+  ApiAcceptedResponse,
+  ApiBadRequestResponse,
+  ApiOkResponse,
+  ApiExtraModels,
+  ApiNotFoundResponse,
+  ApiTags,
+} from '@nestjs/swagger';
 import { ApiPaginatedResponse } from '../decorators';
 import { PaginatedDto, PaginateOptionsDto } from '../dtos';
 import { HeroesService } from './heroes.service';
@@ -30,22 +37,32 @@ export class HeroesController {
     return this.heroesService.getPaginated(query);
   }
 
+  @Get('/random')
+  @ApiOkResponse({ type: HeroDto })
+  getRandom(): Promise<HeroDto> {
+    return this.heroesService.getRandom();
+  }
+
   @Get(':id')
-  @ApiDefaultResponse({ type: HeroDto })
-  getOne(@Param('id') id: HeroDto['id']): Promise<HeroDto> {
+  @ApiNotFoundResponse()
+  @ApiOkResponse({ type: HeroDto })
+  getOne(@Param('id') id: string): Promise<HeroDto> {
     return this.heroesService.getOne(id);
   }
 
   @Post()
-  @ApiDefaultResponse({ type: HeroDto })
+  @ApiOkResponse({ type: HeroDto })
+  @ApiBadRequestResponse()
   create(@Body() createHeroDto: CreateHeroDto): Promise<HeroDto> {
     return this.heroesService.create(createHeroDto);
   }
 
   @Put(':id')
-  @ApiDefaultResponse({ type: HeroDto })
+  @ApiOkResponse({ type: HeroDto })
+  @ApiBadRequestResponse()
+  @ApiNotFoundResponse()
   update(
-    @Param('id') id: HeroDto['id'],
+    @Param('id') id: string,
     @Body() updateHeroDto: UpdateHeroDto,
   ): Promise<HeroDto> {
     return this.heroesService.update(id, updateHeroDto);
@@ -53,13 +70,9 @@ export class HeroesController {
 
   @Delete(':id')
   @HttpCode(HttpStatus.ACCEPTED)
-  async delete(@Param('id') id: HeroDto['id']) {
+  @ApiAcceptedResponse()
+  @ApiNotFoundResponse()
+  async delete(@Param('id') id: string) {
     await this.heroesService.delete(id);
-  }
-
-  @Get('/random')
-  @ApiDefaultResponse({ type: HeroDto })
-  getRandom(): Promise<HeroDto> {
-    return this.heroesService.getRandom();
   }
 }
