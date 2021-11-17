@@ -7,7 +7,10 @@ export class Hero {
   id: number;
 
   @Column()
-  fullName: string;
+  full_name: string;
+
+  @Column()
+  avatar_url: string;
 
   @Column()
   description: string;
