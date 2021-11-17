@@ -16,7 +16,7 @@ export class TypesService {
     return this.repository.save(dto);
   }
 
-  async getOne(id: TypeDto['id']): Promise<TypeDto> {
+  async getOne(id: TypeDto['id']) {
     const type = await this.repository.findOne({ id });
     if (!type) {
       throw new HttpException('Type not found', HttpStatus.NOT_FOUND);
