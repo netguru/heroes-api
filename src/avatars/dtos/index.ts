@@ -1,2 +1,3 @@
-export * from './CreateAvatar.dto';
-export * from './UpdateAvatar.dto';
+export * from './create-avatar.dto';
+export * from './update-avatar.dto';
+export * from './avatar.dto';
