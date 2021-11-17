@@ -9,6 +9,6 @@ import { TypesController } from './types.controller';
   imports: [DatabaseModule, TypeOrmModule.forFeature(entities)],
   providers: [TypesService],
   controllers: [TypesController],
-  exports: [TypeOrmModule],
+  exports: [TypeOrmModule, TypesService],
 })
 export class TypesModule {}
