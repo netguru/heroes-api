@@ -9,8 +9,7 @@ import {
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { TypesService } from './types.service';
-import { Type } from './entities';
-import { CreateTagDto, UpdateTagDto } from './dtos';
+import { CreateTagDto, UpdateTagDto, TypeDto } from './dtos';
 
 @Controller('types')
 @ApiTags('types')
@@ -18,7 +17,7 @@ export class TypesController {
   constructor(private typesService: TypesService) {}
 
   @Get()
-  getAll(): Promise<Type[]> {
+  getAll(): Promise<TypeDto[]> {
     return this.typesService.getAll();
   }
 
@@ -28,12 +27,12 @@ export class TypesController {
   }
 
   @Put(':id')
-  update(@Param('id') id: number, @Body() updateTagDto: UpdateTagDto) {
+  update(@Param('id') id: TypeDto['id'], @Body() updateTagDto: UpdateTagDto) {
     return this.typesService.update(id, updateTagDto);
   }
 
   @Delete(':id')
-  delete(@Param('id') id: number) {
+  delete(@Param('id') id: TypeDto['id']) {
     return this.typesService.delete(id);
   }
 }

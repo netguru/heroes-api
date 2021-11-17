@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Type } from './entities';
-import { CreateTagDto, UpdateTagDto } from './dtos';
+import { CreateTagDto, TypeDto, UpdateTagDto } from './dtos';
 
 @Injectable()
 export class TypesService {
@@ -16,16 +16,16 @@ export class TypesService {
     return this.repository.save(dto);
   }
 
-  getOne(id: number): Promise<Type> {
+  getOne(id: TypeDto['id']): Promise<TypeDto> {
     return this.repository.findOneOrFail({ id });
   }
 
-  async update(id: number, dto: UpdateTagDto) {
+  async update(id: TypeDto['id'], dto: UpdateTagDto) {
     const tag = await this.getOne(id);
     return this.repository.save({ ...tag, ...dto });
   }
 
-  async delete(id: number) {
+  async delete(id: TypeDto['id']) {
     const result = await this.repository.delete({ id });
     return { success: result.affected > 0 };
   }
