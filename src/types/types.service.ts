@@ -16,8 +16,12 @@ export class TypesService {
     return this.repository.save(dto);
   }
 
+  getOne(id: number): Promise<Type> {
+    return this.repository.findOneOrFail({ id });
+  }
+
   async update(id: number, dto: UpdateTagDto) {
-    const tag = await this.repository.findOneOrFail({ id });
+    const tag = await this.getOne(id);
     return this.repository.save({ ...tag, ...dto });
   }
 
