@@ -29,7 +29,7 @@ export class TypesController {
   @Get()
   @ApiArrayResponse(TypeDto)
   getAll(): Promise<TypeDto[]> {
-    return this.typesService.getAll();
+    return this.typesService.types();
   }
 
   @Post()
@@ -48,7 +48,7 @@ export class TypesController {
     @Param('id') id: string,
     @Body() updateTagDto: UpdateTagDto,
   ): Promise<TypeDto> {
-    return this.typesService.update(id, updateTagDto);
+    return this.typesService.update({ id }, updateTagDto);
   }
 
   @Delete(':id')
@@ -56,6 +56,6 @@ export class TypesController {
   @ApiAcceptedResponse()
   @ApiNotFoundResponse()
   async delete(@Param('id') id: string) {
-    await this.typesService.delete(id);
+    await this.typesService.delete({ id });
   }
 }

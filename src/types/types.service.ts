@@ -1,39 +1,36 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
-import { Type } from './entities';
-import { CreateTagDto, TypeDto, UpdateTagDto } from './dtos';
+import { Prisma } from '@prisma/client';
+import { PrismaService } from '../database';
 
 @Injectable()
 export class TypesService {
-  constructor(@InjectRepository(Type) private repository: Repository<Type>) {}
+  constructor(private database: PrismaService) {}
 
-  getAll() {
-    return this.repository.find();
+  types(args?: Prisma.TypeFindManyArgs) {
+    return this.database.type.findMany(args);
   }
 
-  create(dto: CreateTagDto) {
-    return this.repository.save(dto);
-  }
-
-  async getOne(id: TypeDto['id']) {
-    const type = await this.repository.findOne({ id });
+  async type(args?: Prisma.TypeFindUniqueArgs) {
+    const type = await this.database.type.findUnique(args);
     if (!type) {
       throw new HttpException('Type not found', HttpStatus.NOT_FOUND);
     }
     return type;
   }
 
-  async update(id: TypeDto['id'], dto: UpdateTagDto) {
-    const tag = await this.getOne(id);
-    return this.repository.save({ ...tag, ...dto });
+  create(data: Prisma.TypeCreateInput) {
+    return this.database.type.create({ data });
   }
 
-  async delete(id: TypeDto['id']) {
-    const result = await this.repository.delete({ id });
-    if (result.affected === 0) {
-      throw new HttpException('Type not found', HttpStatus.NOT_FOUND);
-    }
+  update(where: Prisma.TypeWhereUniqueInput, data: Prisma.TypeUpdateInput) {
+    return this.database.type.update({
+      where,
+      data,
+    });
+  }
+
+  async delete(where: Prisma.TypeWhereUniqueInput) {
+    await this.database.type.delete({ where });
     return true;
   }
 }

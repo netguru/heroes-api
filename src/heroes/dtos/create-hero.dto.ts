@@ -1,6 +1,5 @@
 import { IsString, IsUrl } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
-import { Type } from '../../types';
 
 export class CreateHeroDto {
   @IsString()
@@ -17,6 +16,6 @@ export class CreateHeroDto {
   description: string;
 
   @IsString()
-  @ApiProperty({ type: String })
-  type: Type['id'];
+  @ApiProperty()
+  type: string;
 }

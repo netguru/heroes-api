@@ -29,7 +29,7 @@ export class AvatarsController {
   @Get()
   @ApiArrayResponse(AvatarDto)
   getAll(): Promise<AvatarDto[]> {
-    return this.avatarsService.getAll();
+    return this.avatarsService.avatars();
   }
 
   @Post()
@@ -48,7 +48,7 @@ export class AvatarsController {
     @Param('id') id: string,
     @Body() updateAvatarDto: UpdateAvatarDto,
   ): Promise<AvatarDto> {
-    return this.avatarsService.update(id, updateAvatarDto);
+    return this.avatarsService.update({ id }, updateAvatarDto);
   }
 
   @Delete(':id')
@@ -56,6 +56,6 @@ export class AvatarsController {
   @ApiAcceptedResponse()
   @ApiNotFoundResponse()
   async delete(@Param('id') id: string) {
-    await this.avatarsService.delete(id);
+    await this.avatarsService.delete({ id });
   }
 }

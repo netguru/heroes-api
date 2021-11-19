@@ -1,41 +1,33 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
-import { Avatar } from './entities';
-import { AvatarDto, CreateAvatarDto, UpdateAvatarDto } from './dtos';
+import { Prisma } from '@prisma/client';
+import { PrismaService } from '../database';
 
 @Injectable()
 export class AvatarsService {
-  constructor(
-    @InjectRepository(Avatar) private repository: Repository<Avatar>,
-  ) {}
+  constructor(private database: PrismaService) {}
 
-  getAll() {
-    return this.repository.find();
+  avatars(args?: Prisma.AvatarFindManyArgs) {
+    return this.database.avatar.findMany(args);
   }
 
-  create(dto: CreateAvatarDto) {
-    return this.repository.save(dto);
-  }
-
-  async getOne(id: AvatarDto['id']) {
-    const avatar = await this.repository.findOne({ id });
+  async avatar(args?: Prisma.AvatarFindUniqueArgs) {
+    const avatar = await this.database.avatar.findUnique(args);
     if (!avatar) {
       throw new HttpException('Avatar not found', HttpStatus.NOT_FOUND);
     }
     return avatar;
   }
 
-  async update(id: AvatarDto['id'], dto: UpdateAvatarDto) {
-    const avatar = await this.getOne(id);
-    return this.repository.save({ ...avatar, ...dto });
+  create(data: Prisma.AvatarCreateInput) {
+    return this.database.avatar.create({ data });
   }
 
-  async delete(id: AvatarDto['id']) {
-    const result = await this.repository.delete({ id });
-    if (result.affected === 0) {
-      throw new HttpException('Avatar not found', HttpStatus.NOT_FOUND);
-    }
+  update(where: Prisma.AvatarWhereUniqueInput, data: Prisma.AvatarUpdateInput) {
+    return this.database.avatar.update({ where, data });
+  }
+
+  async delete(where: Prisma.AvatarWhereUniqueInput) {
+    await this.database.avatar.delete({ where });
     return true;
   }
 }
