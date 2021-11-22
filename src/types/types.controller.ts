@@ -18,7 +18,7 @@ import {
   ApiTags,
 } from '@nestjs/swagger';
 import { TypesService } from './types.service';
-import { CreateTagDto, UpdateTagDto, TypeDto } from './dtos';
+import { CreateTypeDto, UpdateTypeDto, TypeDto } from './dtos';
 import { ApiArrayResponse } from '../decorators';
 
 @Controller('types')
@@ -36,7 +36,7 @@ export class TypesController {
   @ApiCreatedResponse({ type: TypeDto })
   @ApiBadRequestResponse()
   @ApiNotFoundResponse()
-  create(@Body() createTagDto: CreateTagDto): Promise<TypeDto> {
+  create(@Body() createTagDto: CreateTypeDto): Promise<TypeDto> {
     return this.typesService.create(createTagDto);
   }
 
@@ -46,7 +46,7 @@ export class TypesController {
   @ApiNotFoundResponse()
   update(
     @Param('id') id: string,
-    @Body() updateTagDto: UpdateTagDto,
+    @Body() updateTagDto: UpdateTypeDto,
   ): Promise<TypeDto> {
     return this.typesService.update({ id }, updateTagDto);
   }

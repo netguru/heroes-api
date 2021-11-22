@@ -1,3 +1,3 @@
-export * from './create-tag.dto';
-export * from './update-tag.dto';
+export * from './create-type.dto';
+export * from './update-type.dto';
 export * from './type.dto';
