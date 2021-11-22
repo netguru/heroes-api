@@ -8,6 +8,6 @@ export class TypeDto {
   id: string;
 
   @ApiProperty()
-  @Field()
+  @Field(() => ID)
   name: string;
 }
