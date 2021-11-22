@@ -25,7 +25,7 @@ export class TypesResolver {
   }
 
   @Mutation(() => TypeDto)
-  deleteType(@Args('id', { type: () => ID }) id: string): Promise<boolean> {
+  deleteType(@Args('id', { type: () => ID }) id: string): Promise<TypeDto> {
     return this.typesService.delete({ id });
   }
 }

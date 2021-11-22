@@ -29,8 +29,7 @@ export class TypesService {
     });
   }
 
-  async delete(where: Prisma.TypeWhereUniqueInput) {
-    await this.database.type.delete({ where });
-    return true;
+  delete(where: Prisma.TypeWhereUniqueInput) {
+    return this.database.type.delete({ where });
   }
 }
