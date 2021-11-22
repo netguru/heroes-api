@@ -1,4 +1,17 @@
-import { CreateAvatarDto } from './create-avatar.dto';
-import { PartialType } from '@nestjs/swagger';
+import { ApiPropertyOptional } from '@nestjs/swagger';
+import { ArgsType, Field } from '@nestjs/graphql';
+import { IsString, IsUrl } from 'class-validator';
 
-export class UpdateAvatarDto extends PartialType(CreateAvatarDto) {}
+@ArgsType()
+export class UpdateAvatarDto {
+  @IsString()
+  @ApiPropertyOptional()
+  @Field({ nullable: true })
+  alt?: string;
+
+  @IsString()
+  @IsUrl()
+  @ApiPropertyOptional()
+  @Field({ nullable: true })
+  avatar_url?: string;
+}

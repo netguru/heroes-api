@@ -26,8 +26,7 @@ export class AvatarsService {
     return this.database.avatar.update({ where, data });
   }
 
-  async delete(where: Prisma.AvatarWhereUniqueInput) {
-    await this.database.avatar.delete({ where });
-    return true;
+  delete(where: Prisma.AvatarWhereUniqueInput) {
+    return this.database.avatar.delete({ where });
   }
 }
