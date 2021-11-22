@@ -29,9 +29,8 @@ export class HeroesService {
     return this.database.hero.update({ where, data, include: { type: true } });
   }
 
-  async delete(where: Prisma.HeroWhereUniqueInput) {
-    await this.database.hero.delete({ where });
-    return true;
+  delete(where: Prisma.HeroWhereUniqueInput) {
+    return this.database.hero.delete({ where, include: { type: true } });
   }
 
   async random() {

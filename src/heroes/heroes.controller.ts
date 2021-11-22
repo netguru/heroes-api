@@ -14,36 +14,51 @@ import {
   ApiAcceptedResponse,
   ApiBadRequestResponse,
   ApiOkResponse,
-  ApiExtraModels,
   ApiNotFoundResponse,
   ApiTags,
 } from '@nestjs/swagger';
 import { ApiPaginatedResponse } from '../decorators';
-import { PaginatedDto, PaginateOptionsDto } from '../dtos';
 import { HeroesService } from './heroes.service';
-import { CreateHeroDto, UpdateHeroDto, HeroDto } from './dtos';
+import {
+  CreateHeroDto,
+  UpdateHeroDto,
+  HeroDto,
+  HeroesPaginatedDto,
+  HeroesPaginateOptionsDto,
+} from './dtos';
 
 @Controller('heroes')
 @ApiTags('heroes')
-@ApiExtraModels(PaginatedDto)
 export class HeroesController {
   constructor(private heroesService: HeroesService) {}
 
   @Get()
   @ApiPaginatedResponse(HeroDto)
   async getAll(
-    @Query() query: PaginateOptionsDto,
-  ): Promise<PaginatedDto<HeroDto>> {
-    const [data, totalCount] = await Promise.all([
+    @Query() query: HeroesPaginateOptionsDto,
+  ): Promise<HeroesPaginatedDto> {
+    const [data, total_count] = await Promise.all([
       this.heroesService.heroes({
         take: query.first,
         skip: query.skip,
-        distinct: ['typeId'],
+        where: {
+          typeId: query.type_id,
+          full_name: {
+            contains: query.name_query,
+          },
+        },
       }),
-      this.heroesService.count(),
+      this.heroesService.count({
+        where: {
+          typeId: query.type_id,
+          full_name: {
+            contains: query.name_query,
+          },
+        },
+      }),
     ]);
 
-    return { totalCount, data };
+    return { data, total_count };
   }
 
   @Get('/random')
@@ -63,10 +78,10 @@ export class HeroesController {
   @ApiOkResponse({ type: HeroDto })
   @ApiBadRequestResponse()
   create(@Body() createHeroDto: CreateHeroDto): Promise<HeroDto> {
-    const { type, ...hero } = createHeroDto;
+    const { type_id, ...hero } = createHeroDto;
     return this.heroesService.create({
       ...hero,
-      type: { connect: { id: type } },
+      type: { connect: { id: type_id } },
     });
   }
 
@@ -78,18 +93,17 @@ export class HeroesController {
     @Param('id') id: string,
     @Body() updateHeroDto: UpdateHeroDto,
   ): Promise<HeroDto> {
-    const { type, ...hero } = updateHeroDto;
+    const { type_id, ...hero } = updateHeroDto;
     return this.heroesService.update(
       { id },
-      { ...hero, type: { connect: { id: type } } },
+      { ...hero, type: { connect: { id: type_id } } },
     );
   }
 
   @Delete(':id')
-  @HttpCode(HttpStatus.ACCEPTED)
-  @ApiAcceptedResponse()
+  @ApiOkResponse({ type: HeroDto })
   @ApiNotFoundResponse()
-  async delete(@Param('id') id: string) {
-    await this.heroesService.delete({ id });
+  delete(@Param('id') id: string) {
+    return this.heroesService.delete({ id });
   }
 }

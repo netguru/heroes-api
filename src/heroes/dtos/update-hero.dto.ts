@@ -1,4 +1,27 @@
-import { PartialType } from '@nestjs/swagger';
-import { CreateHeroDto } from './create-hero.dto';
+import { ApiProperty } from '@nestjs/swagger';
+import { ArgsType, Field, ID } from '@nestjs/graphql';
+import { IsString, IsUrl } from 'class-validator';
 
-export class UpdateHeroDto extends PartialType(CreateHeroDto) {}
+@ArgsType()
+export class UpdateHeroDto {
+  @IsString()
+  @ApiProperty()
+  @Field()
+  full_name?: string;
+
+  @IsString()
+  @IsUrl()
+  @ApiProperty()
+  @Field()
+  avatar_url?: string;
+
+  @IsString()
+  @ApiProperty()
+  @Field(() => ID)
+  type_id?: string;
+
+  @IsString()
+  @ApiProperty()
+  @Field()
+  description?: string;
+}
