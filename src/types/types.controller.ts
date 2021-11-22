@@ -3,14 +3,11 @@ import {
   Controller,
   Delete,
   Get,
-  HttpCode,
-  HttpStatus,
   Param,
   Post,
   Put,
 } from '@nestjs/common';
 import {
-  ApiAcceptedResponse,
   ApiBadRequestResponse,
   ApiCreatedResponse,
   ApiNotFoundResponse,
@@ -52,8 +49,7 @@ export class TypesController {
   }
 
   @Delete(':id')
-  @HttpCode(HttpStatus.ACCEPTED)
-  @ApiAcceptedResponse()
+  @ApiOkResponse({ type: TypeDto })
   @ApiNotFoundResponse()
   async delete(@Param('id') id: string) {
     await this.typesService.delete({ id });
