@@ -16,28 +16,28 @@ export class HeroesResolver {
   async heroes(
     @Args() heroesPaginateOptions: HeroesPaginateOptionsDto,
   ): Promise<HeroesPaginatedDto> {
-    const [data, total_count] = await Promise.all([
+    const [data, totalCount] = await Promise.all([
       this.heroesService.heroes({
         take: heroesPaginateOptions.first,
         skip: heroesPaginateOptions.skip,
         where: {
-          typeId: heroesPaginateOptions.type_id,
-          full_name: {
-            contains: heroesPaginateOptions.name_query,
+          typeId: heroesPaginateOptions.typeId,
+          fullName: {
+            contains: heroesPaginateOptions.fullName,
           },
         },
       }),
       this.heroesService.count({
         where: {
-          typeId: heroesPaginateOptions.type_id,
-          full_name: {
-            contains: heroesPaginateOptions.name_query,
+          typeId: heroesPaginateOptions.typeId,
+          fullName: {
+            contains: heroesPaginateOptions.fullName,
           },
         },
       }),
     ]);
 
-    return { data, total_count };
+    return { data, totalCount };
   }
 
   @Query(() => HeroDto)
@@ -52,10 +52,11 @@ export class HeroesResolver {
 
   @Mutation(() => HeroDto)
   createNewHero(@Args() createHeroDto: CreateHeroDto): Promise<HeroDto> {
-    const { type_id, ...hero } = createHeroDto;
+    const { avatarId, typeId, ...hero } = createHeroDto;
     return this.heroesService.create({
       ...hero,
-      type: { connect: { id: type_id } },
+      type: { connect: { id: typeId } },
+      avatar: { connect: { id: avatarId } },
     });
   }
 
@@ -64,10 +65,14 @@ export class HeroesResolver {
     @Args() updateHeroDto: UpdateHeroDto,
     @Args('id', { type: () => ID }) id: string,
   ): Promise<HeroDto> {
-    const { type_id, ...hero } = updateHeroDto;
+    const { avatarId, typeId, ...hero } = updateHeroDto;
     return this.heroesService.update(
       { id },
-      { ...hero, type: { connect: { id: type_id } } },
+      {
+        ...hero,
+        type: { connect: { id: typeId } },
+        avatar: { connect: { id: avatarId } },
+      },
     );
   }
 

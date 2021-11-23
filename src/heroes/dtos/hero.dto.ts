@@ -1,6 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { Field, ID, ObjectType } from '@nestjs/graphql';
 import { TypeDto } from '../../types/dtos';
+import { AvatarDto } from '../../avatars/dtos';
 
 @ObjectType('Hero')
 export class HeroDto {
@@ -10,11 +11,11 @@ export class HeroDto {
 
   @ApiProperty()
   @Field()
-  full_name: string;
+  fullName: string;
 
-  @ApiProperty()
-  @Field()
-  avatar_url: string;
+  @ApiProperty({ type: AvatarDto })
+  @Field(() => AvatarDto)
+  avatar: AvatarDto;
 
   @ApiProperty()
   @Field()

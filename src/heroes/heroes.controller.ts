@@ -3,15 +3,12 @@ import {
   Controller,
   Delete,
   Get,
-  HttpCode,
-  HttpStatus,
   Param,
   Post,
   Put,
   Query,
 } from '@nestjs/common';
 import {
-  ApiAcceptedResponse,
   ApiBadRequestResponse,
   ApiOkResponse,
   ApiNotFoundResponse,
@@ -37,28 +34,28 @@ export class HeroesController {
   async getAll(
     @Query() query: HeroesPaginateOptionsDto,
   ): Promise<HeroesPaginatedDto> {
-    const [data, total_count] = await Promise.all([
+    const [data, totalCount] = await Promise.all([
       this.heroesService.heroes({
         take: query.first,
         skip: query.skip,
         where: {
-          typeId: query.type_id,
-          full_name: {
-            contains: query.name_query,
+          typeId: query.typeId,
+          fullName: {
+            contains: query.fullName,
           },
         },
       }),
       this.heroesService.count({
         where: {
-          typeId: query.type_id,
-          full_name: {
-            contains: query.name_query,
+          typeId: query.typeId,
+          fullName: {
+            contains: query.fullName,
           },
         },
       }),
     ]);
 
-    return { data, total_count };
+    return { data, totalCount };
   }
 
   @Get('/random')
@@ -78,10 +75,11 @@ export class HeroesController {
   @ApiOkResponse({ type: HeroDto })
   @ApiBadRequestResponse()
   create(@Body() createHeroDto: CreateHeroDto): Promise<HeroDto> {
-    const { type_id, ...hero } = createHeroDto;
+    const { typeId, avatarId, ...hero } = createHeroDto;
     return this.heroesService.create({
       ...hero,
-      type: { connect: { id: type_id } },
+      type: { connect: { id: typeId } },
+      avatar: { connect: { id: avatarId } },
     });
   }
 
@@ -93,10 +91,14 @@ export class HeroesController {
     @Param('id') id: string,
     @Body() updateHeroDto: UpdateHeroDto,
   ): Promise<HeroDto> {
-    const { type_id, ...hero } = updateHeroDto;
+    const { typeId, avatarId, ...hero } = updateHeroDto;
     return this.heroesService.update(
       { id },
-      { ...hero, type: { connect: { id: type_id } } },
+      {
+        ...hero,
+        type: { connect: { id: typeId } },
+        avatar: { connect: { id: avatarId } },
+      },
     );
   }
 

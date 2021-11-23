@@ -9,12 +9,15 @@ export class HeroesService {
   heroes(args?: Omit<Prisma.HeroFindManyArgs, 'include'>) {
     return this.database.hero.findMany({
       ...args,
-      include: { type: true },
+      include: { type: true, avatar: true },
     });
   }
 
   hero(args?: Omit<Prisma.HeroFindUniqueArgs, 'include'>) {
-    return this.database.hero.findUnique({ ...args, include: { type: true } });
+    return this.database.hero.findUnique({
+      ...args,
+      include: { type: true, avatar: true },
+    });
   }
 
   count(args?: Prisma.HeroCountArgs): Promise<number> {
@@ -22,15 +25,25 @@ export class HeroesService {
   }
 
   async create(data: Prisma.HeroCreateInput) {
-    return this.database.hero.create({ data, include: { type: true } });
+    return this.database.hero.create({
+      data,
+      include: { type: true, avatar: true },
+    });
   }
 
   update(where: Prisma.HeroWhereUniqueInput, data: Prisma.HeroUpdateInput) {
-    return this.database.hero.update({ where, data, include: { type: true } });
+    return this.database.hero.update({
+      where,
+      data,
+      include: { type: true, avatar: true },
+    });
   }
 
   delete(where: Prisma.HeroWhereUniqueInput) {
-    return this.database.hero.delete({ where, include: { type: true } });
+    return this.database.hero.delete({
+      where,
+      include: { type: true, avatar: true },
+    });
   }
 
   async random() {

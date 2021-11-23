@@ -1,5 +1,5 @@
 import { IsArray, IsNumber } from 'class-validator';
-import { Field, ObjectType } from '@nestjs/graphql';
+import { Field, Int, ObjectType } from '@nestjs/graphql';
 
 export interface ClassType<T = any> {
   new (...args: any[]): T;
@@ -13,8 +13,8 @@ export function PaginatedDto<TData>(TItemClass: ClassType<TData>) {
     data: TData[];
 
     @IsNumber()
-    @Field()
-    total_count: number;
+    @Field(() => Int)
+    totalCount: number;
   }
   return PaginatedResponseClass;
 }

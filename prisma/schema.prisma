@@ -8,15 +8,17 @@ datasource db {
 }
 
 model Avatar {
-  id         String @id @default(uuid())
-  alt        String @default(value: "Image")
-  avatar_url String
+  id        String @id @default(uuid())
+  alt       String @default(value: "Image")
+  avatarUrl String
+  hero      Hero[]
 }
 
 model Hero {
   id          String @id @default(uuid())
-  full_name   String
-  avatar_url  String
+  fullName    String
+  avatar      Avatar @relation(references: [id], fields: [avatarId])
+  avatarId    String
   description String
   type        Type   @relation(references: [id], fields: [typeId])
   typeId      String
