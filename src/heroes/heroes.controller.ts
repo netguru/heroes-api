@@ -34,24 +34,21 @@ export class HeroesController {
   async getAll(
     @Query() query: HeroesPaginateOptionsDto,
   ): Promise<HeroesPaginatedDto> {
+    const whereOptions = {
+      typeId: query.typeId,
+      fullName: {
+        contains: query.fullNameQuery,
+      },
+    };
+
     const [data, totalCount] = await Promise.all([
       this.heroesService.heroes({
         take: query.first,
         skip: query.skip,
-        where: {
-          typeId: query.typeId,
-          fullName: {
-            contains: query.fullName,
-          },
-        },
+        where: whereOptions,
       }),
       this.heroesService.count({
-        where: {
-          typeId: query.typeId,
-          fullName: {
-            contains: query.fullName,
-          },
-        },
+        where: whereOptions,
       }),
     ]);
 

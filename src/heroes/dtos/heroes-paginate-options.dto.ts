@@ -17,7 +17,7 @@ export class HeroesPaginateOptionsDto {
   @ApiPropertyOptional()
   @Type(() => String)
   @Field({ nullable: true })
-  fullName: string;
+  fullNameQuery: string;
 
   @IsNumber()
   @IsOptional()

@@ -7,6 +7,7 @@ import {
   UpdateHeroDto,
 } from './dtos';
 import { HeroesService } from './heroes.service';
+import { DeleteHeroDto } from './dtos/delete-hero.dto';
 
 @Resolver(() => HeroDto)
 export class HeroesResolver {
@@ -16,24 +17,21 @@ export class HeroesResolver {
   async heroes(
     @Args() heroesPaginateOptions: HeroesPaginateOptionsDto,
   ): Promise<HeroesPaginatedDto> {
+    const whereOptions = {
+      typeId: heroesPaginateOptions.typeId,
+      fullName: {
+        contains: heroesPaginateOptions.fullNameQuery,
+      },
+    };
+
     const [data, totalCount] = await Promise.all([
       this.heroesService.heroes({
         take: heroesPaginateOptions.first,
         skip: heroesPaginateOptions.skip,
-        where: {
-          typeId: heroesPaginateOptions.typeId,
-          fullName: {
-            contains: heroesPaginateOptions.fullName,
-          },
-        },
+        where: whereOptions,
       }),
       this.heroesService.count({
-        where: {
-          typeId: heroesPaginateOptions.typeId,
-          fullName: {
-            contains: heroesPaginateOptions.fullName,
-          },
-        },
+        where: whereOptions,
       }),
     ]);
 
@@ -51,8 +49,8 @@ export class HeroesResolver {
   }
 
   @Mutation(() => HeroDto)
-  createHero(@Args() createHeroDto: CreateHeroDto): Promise<HeroDto> {
-    const { avatarId, typeId, ...hero } = createHeroDto;
+  createHero(@Args('input') input: CreateHeroDto): Promise<HeroDto> {
+    const { avatarId, typeId, ...hero } = input;
     return this.heroesService.create({
       ...hero,
       type: { connect: { id: typeId } },
@@ -61,11 +59,8 @@ export class HeroesResolver {
   }
 
   @Mutation(() => HeroDto)
-  updateHero(
-    @Args() updateHeroDto: UpdateHeroDto,
-    @Args('id', { type: () => ID }) id: string,
-  ): Promise<HeroDto> {
-    const { avatarId, typeId, ...hero } = updateHeroDto;
+  updateHero(@Args('input') input: UpdateHeroDto): Promise<HeroDto> {
+    const { id, avatarId, typeId, ...hero } = input;
     return this.heroesService.update(
       { id },
       {
@@ -77,7 +72,7 @@ export class HeroesResolver {
   }
 
   @Mutation(() => HeroDto)
-  deleteHero(@Args('id', { type: () => ID }) id: string): Promise<HeroDto> {
-    return this.heroesService.delete({ id });
+  deleteHero(@Args('input') input: DeleteHeroDto): Promise<HeroDto> {
+    return this.heroesService.delete({ id: input.id });
   }
 }

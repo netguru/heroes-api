@@ -1,9 +1,14 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { ArgsType, Field, ID } from '@nestjs/graphql';
+import { Field, ID, InputType } from '@nestjs/graphql';
 import { IsString } from 'class-validator';
 
-@ArgsType()
+@InputType('UpdateHeroInput')
 export class UpdateHeroDto {
+  @IsString()
+  @ApiProperty()
+  @Field(() => ID)
+  id: string;
+
   @IsString()
   @ApiProperty()
   @Field()
