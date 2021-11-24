@@ -1,4 +1,4 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { Prisma } from '@prisma/client';
 import { PrismaService } from '../database';
 
@@ -10,12 +10,8 @@ export class AvatarsService {
     return this.database.avatar.findMany(args);
   }
 
-  async avatar(args?: Prisma.AvatarFindUniqueArgs) {
-    const avatar = await this.database.avatar.findUnique(args);
-    if (!avatar) {
-      throw new HttpException('Avatar not found', HttpStatus.NOT_FOUND);
-    }
-    return avatar;
+  avatar(args?: Omit<Prisma.AvatarFindUniqueArgs, 'rejectOnNotFound'>) {
+    return this.database.avatar.findUnique({ rejectOnNotFound: true, ...args });
   }
 
   count(args?: Prisma.AvatarCountArgs): Promise<number> {

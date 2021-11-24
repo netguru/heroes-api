@@ -11,8 +11,11 @@ export class TypesService {
     return this.database.type.findMany(args);
   }
 
-  async type(args?: Prisma.TypeFindUniqueArgs) {
-    return this.database.type.findUnique(args);
+  async type(args?: Omit<Prisma.TypeFindUniqueArgs, 'rejectOnNotFound'>) {
+    return this.database.type.findUnique({
+      rejectOnNotFound: true,
+      ...args,
+    });
   }
 
   count(): Promise<number> {
