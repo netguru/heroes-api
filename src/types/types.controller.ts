@@ -37,6 +37,14 @@ export class TypesController {
     return this.typesService.create(createTagDto);
   }
 
+  @Get(':id')
+  @ApiOkResponse({ type: TypeDto })
+  @ApiBadRequestResponse()
+  @ApiNotFoundResponse()
+  get(@Param('id') id: string) {
+    return this.typesService.type({ where: { id } });
+  }
+
   @Put(':id')
   @ApiOkResponse({ type: TypeDto })
   @ApiBadRequestResponse()

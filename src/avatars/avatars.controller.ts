@@ -37,6 +37,14 @@ export class AvatarsController {
     return this.avatarsService.create(createAvatarDto);
   }
 
+  @Get(':id')
+  @ApiOkResponse({ type: AvatarDto })
+  @ApiBadRequestResponse()
+  @ApiNotFoundResponse()
+  get(@Param('id') id: string) {
+    return this.avatarsService.avatar({ where: { id } });
+  }
+
   @Put(':id')
   @ApiOkResponse({ type: AvatarDto })
   @ApiBadRequestResponse()
