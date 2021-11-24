@@ -1,8 +1,8 @@
 import { IsString } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
-import { ArgsType, Field } from '@nestjs/graphql';
+import { Field, InputType } from '@nestjs/graphql';
 
-@ArgsType()
+@InputType('CreateTypeInput')
 export class CreateTypeDto {
   @IsString()
   @ApiProperty()

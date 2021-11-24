@@ -34,7 +34,7 @@ export class AvatarsResolver {
   }
 
   @Mutation(() => AvatarDto)
-  createNewAvatar(@Args('input') input: CreateAvatarDto): Promise<AvatarDto> {
+  createAvatar(@Args('input') input: CreateAvatarDto): Promise<AvatarDto> {
     return this.avatarsService.create(input);
   }
 

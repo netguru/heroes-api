@@ -1,8 +1,8 @@
 import { ApiPropertyOptional } from '@nestjs/swagger';
-import { ArgsType, Field } from '@nestjs/graphql';
+import { Field, InputType } from '@nestjs/graphql';
 import { IsString } from 'class-validator';
 
-@ArgsType()
+@InputType('UpdateTypeInput')
 export class UpdateTypeDto {
   @IsString()
   @ApiPropertyOptional()

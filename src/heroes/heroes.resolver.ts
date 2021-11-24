@@ -51,7 +51,7 @@ export class HeroesResolver {
   }
 
   @Mutation(() => HeroDto)
-  createNewHero(@Args() createHeroDto: CreateHeroDto): Promise<HeroDto> {
+  createHero(@Args() createHeroDto: CreateHeroDto): Promise<HeroDto> {
     const { avatarId, typeId, ...hero } = createHeroDto;
     return this.heroesService.create({
       ...hero,

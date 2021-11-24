@@ -1,6 +1,7 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { Prisma } from '@prisma/client';
 import { PrismaService } from '../database';
+import { TypeDto } from './dtos';
 
 @Injectable()
 export class TypesService {
@@ -11,14 +12,14 @@ export class TypesService {
   }
 
   async type(args?: Prisma.TypeFindUniqueArgs) {
-    const type = await this.database.type.findUnique(args);
-    if (!type) {
-      throw new HttpException('Type not found', HttpStatus.NOT_FOUND);
-    }
-    return type;
+    return this.database.type.findUnique(args);
   }
 
-  create(data: Prisma.TypeCreateInput) {
+  count(): Promise<number> {
+    return this.database.type.count();
+  }
+
+  create(data: Prisma.TypeCreateInput): Promise<TypeDto> {
     return this.database.type.create({ data });
   }
 
