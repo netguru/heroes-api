@@ -2,6 +2,7 @@ import { Args, ID, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { PaginateOptionsDto } from '../dtos';
 import {
   CreateTypeDto,
+  DeleteTypeDto,
   TypeDto,
   TypesPaginatedDto,
   UpdateTypeDto,
@@ -32,15 +33,13 @@ export class TypesResolver {
   }
 
   @Mutation(() => TypeDto)
-  updateType(
-    @Args('input') input: UpdateTypeDto,
-    @Args('id', { type: () => ID }) id: string,
-  ): Promise<TypeDto> {
-    return this.typesService.update({ id }, input);
+  updateType(@Args('input') input: UpdateTypeDto): Promise<TypeDto> {
+    const { id, ...type } = input;
+    return this.typesService.update({ id }, type);
   }
 
   @Mutation(() => TypeDto)
-  deleteType(@Args('id', { type: () => ID }) id: string): Promise<TypeDto> {
-    return this.typesService.delete({ id });
+  deleteType(@Args('input') input: DeleteTypeDto): Promise<TypeDto> {
+    return this.typesService.delete({ id: input.id });
   }
 }
