@@ -4,7 +4,7 @@ import { PrismaService } from '../database';
 
 @Injectable()
 export class HeroesService {
-  constructor(private database: PrismaService) {}
+  constructor(private readonly database: PrismaService) {}
 
   heroes(args?: Omit<Prisma.HeroFindManyArgs, 'include'>) {
     return this.database.hero.findMany({

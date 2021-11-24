@@ -21,7 +21,7 @@ import { ApiArrayResponse } from '../decorators';
 @Controller('avatars')
 @ApiTags('avatars')
 export class AvatarsController {
-  constructor(private avatarsService: AvatarsService) {}
+  constructor(private readonly avatarsService: AvatarsService) {}
 
   @Get()
   @ApiArrayResponse(AvatarDto)

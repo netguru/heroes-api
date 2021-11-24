@@ -7,5 +7,5 @@ export class DeleteHeroDto {
   @IsString()
   @ApiProperty()
   @Field(() => ID)
-  id: string;
+  readonly id: string;
 }

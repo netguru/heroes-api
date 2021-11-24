@@ -21,7 +21,7 @@ import { ApiArrayResponse } from '../decorators';
 @Controller('types')
 @ApiTags('types')
 export class TypesController {
-  constructor(private typesService: TypesService) {}
+  constructor(private readonly typesService: TypesService) {}
 
   @Get()
   @ApiArrayResponse(TypeDto)

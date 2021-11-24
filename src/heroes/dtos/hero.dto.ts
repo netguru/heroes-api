@@ -7,7 +7,7 @@ import { AvatarDto } from '../../avatars/dtos';
 export class HeroDto {
   @ApiProperty()
   @Field(() => ID)
-  id: string;
+  readonly id: string;
 
   @ApiProperty()
   @Field()

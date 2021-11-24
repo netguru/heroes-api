@@ -5,7 +5,7 @@ import { Field, ID, ObjectType } from '@nestjs/graphql';
 export class AvatarDto {
   @ApiProperty()
   @Field(() => ID)
-  id: string;
+  readonly id: string;
 
   @ApiProperty()
   @Field()

@@ -7,7 +7,7 @@ export class UpdateTypeDto {
   @IsString()
   @ApiProperty()
   @Field(() => ID)
-  id: string;
+  readonly id: string;
 
   @IsString()
   @ApiPropertyOptional()

@@ -7,7 +7,7 @@ export class UpdateHeroDto {
   @IsString()
   @ApiProperty()
   @Field(() => ID)
-  id: string;
+  readonly id: string;
 
   @IsString()
   @ApiProperty()
@@ -17,12 +17,12 @@ export class UpdateHeroDto {
   @IsString()
   @ApiProperty()
   @Field(() => ID)
-  avatarId?: string;
+  readonly avatarId?: string;
 
   @IsString()
   @ApiProperty()
   @Field(() => ID)
-  typeId?: string;
+  readonly typeId?: string;
 
   @IsString()
   @ApiProperty()

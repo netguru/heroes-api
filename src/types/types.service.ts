@@ -5,7 +5,7 @@ import { TypeDto } from './dtos';
 
 @Injectable()
 export class TypesService {
-  constructor(private database: PrismaService) {}
+  constructor(private readonly database: PrismaService) {}
 
   types(args?: Prisma.TypeFindManyArgs) {
     return this.database.type.findMany(args);

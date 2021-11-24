@@ -4,7 +4,7 @@ import { PrismaService } from '../database';
 
 @Injectable()
 export class AvatarsService {
-  constructor(private database: PrismaService) {}
+  constructor(private readonly database: PrismaService) {}
 
   avatars(args?: Prisma.AvatarFindManyArgs) {
     return this.database.avatar.findMany(args);

@@ -7,7 +7,7 @@ export class UpdateAvatarDto {
   @IsString()
   @ApiProperty()
   @Field(() => ID)
-  id: string;
+  readonly id: string;
 
   @IsString()
   @ApiPropertyOptional()

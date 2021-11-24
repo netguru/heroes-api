@@ -27,7 +27,7 @@ import {
 @Controller('heroes')
 @ApiTags('heroes')
 export class HeroesController {
-  constructor(private heroesService: HeroesService) {}
+  constructor(private readonly heroesService: HeroesService) {}
 
   @Get()
   @ApiPaginatedResponse(HeroDto)
