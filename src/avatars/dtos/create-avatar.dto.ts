@@ -1,17 +1,17 @@
 import { IsString, IsUrl } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
-import { ArgsType, Field } from '@nestjs/graphql';
+import { Field, InputType } from '@nestjs/graphql';
 
-@ArgsType()
+@InputType('CreateAvatarInput')
 export class CreateAvatarDto {
+  @IsString()
+  @ApiProperty()
+  @Field()
+  alt: string;
+
   @IsString()
   @IsUrl()
   @ApiProperty()
   @Field()
   avatarUrl: string;
-
-  @IsString()
-  @ApiProperty()
-  @Field()
-  alt: string;
 }

@@ -18,6 +18,10 @@ export class AvatarsService {
     return avatar;
   }
 
+  count(args?: Prisma.AvatarCountArgs): Promise<number> {
+    return this.database.avatar.count(args);
+  }
+
   create(data: Prisma.AvatarCreateInput) {
     return this.database.avatar.create({ data });
   }

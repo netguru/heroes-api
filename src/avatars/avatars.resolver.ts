@@ -1,29 +1,49 @@
 import { Args, ID, Mutation, Query, Resolver } from '@nestjs/graphql';
-import { AvatarDto, CreateAvatarDto, UpdateAvatarDto } from './dtos';
+import { PaginateOptionsDto } from '../dtos';
+import {
+  AvatarDto,
+  AvatarsPaginatedDto,
+  CreateAvatarDto,
+  UpdateAvatarDto,
+} from './dtos';
 import { AvatarsService } from './avatars.service';
 
 @Resolver(() => AvatarDto)
 export class AvatarsResolver {
   constructor(private readonly avatarsService: AvatarsService) {}
 
+  @Query(() => AvatarsPaginatedDto)
+  async avatars(
+    @Args()
+    options: PaginateOptionsDto,
+  ): Promise<AvatarsPaginatedDto> {
+    const [data, totalCount] = await Promise.all([
+      this.avatarsService.avatars({
+        skip: options.skip,
+        take: options.first,
+      }),
+      this.avatarsService.count(),
+    ]);
+
+    return { data, totalCount };
+  }
+
   @Query(() => AvatarDto)
-  // FIXME: This query should be changed to `avatar`
-  // left as `avatars` for backward compatibility
-  avatars(@Args('id', { type: () => ID }) id: string): Promise<AvatarDto> {
+  avatar(@Args('id', { type: () => ID }) id: string): Promise<AvatarDto> {
     return this.avatarsService.avatar({ where: { id } });
   }
 
   @Mutation(() => AvatarDto)
-  createNewAvatar(@Args() newAvatarDto: CreateAvatarDto): Promise<AvatarDto> {
-    return this.avatarsService.create(newAvatarDto);
+  createNewAvatar(@Args('input') input: CreateAvatarDto): Promise<AvatarDto> {
+    return this.avatarsService.create(input);
   }
 
   @Mutation(() => AvatarDto)
   updateAvatar(
-    @Args() updateAvatarDto: UpdateAvatarDto,
+    @Args('input') input: UpdateAvatarDto,
     @Args('id', { type: () => ID }) id: string,
   ): Promise<AvatarDto> {
-    return this.avatarsService.update({ id }, updateAvatarDto);
+    return this.avatarsService.update({ id }, input);
   }
 
   @Mutation(() => AvatarDto)
