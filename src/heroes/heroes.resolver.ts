@@ -5,9 +5,9 @@ import {
   HeroesPaginatedDto,
   HeroesPaginateOptionsDto,
   UpdateHeroDto,
+  DeleteHeroDto,
 } from './dtos';
 import { HeroesService } from './heroes.service';
-import { DeleteHeroDto } from './dtos/delete-hero.dto';
 
 @Resolver(() => HeroDto)
 export class HeroesResolver {

@@ -4,6 +4,7 @@ import {
   AvatarDto,
   AvatarsPaginatedDto,
   CreateAvatarDto,
+  DeleteAvatarDto,
   UpdateAvatarDto,
 } from './dtos';
 import { AvatarsService } from './avatars.service';
@@ -39,15 +40,13 @@ export class AvatarsResolver {
   }
 
   @Mutation(() => AvatarDto)
-  updateAvatar(
-    @Args('input') input: UpdateAvatarDto,
-    @Args('id', { type: () => ID }) id: string,
-  ): Promise<AvatarDto> {
-    return this.avatarsService.update({ id }, input);
+  updateAvatar(@Args('input') input: UpdateAvatarDto): Promise<AvatarDto> {
+    const { id, ...avatar } = input;
+    return this.avatarsService.update({ id }, avatar);
   }
 
   @Mutation(() => AvatarDto)
-  deleteAvatar(@Args('id', { type: () => ID }) id: string): Promise<AvatarDto> {
-    return this.avatarsService.delete({ id });
+  deleteAvatar(@Args('input') input: DeleteAvatarDto): Promise<AvatarDto> {
+    return this.avatarsService.delete({ id: input.id });
   }
 }

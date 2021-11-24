@@ -1,9 +1,14 @@
-import { ApiPropertyOptional } from '@nestjs/swagger';
-import { Field, InputType } from '@nestjs/graphql';
+import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+import { Field, ID, InputType } from '@nestjs/graphql';
 import { IsString, IsUrl } from 'class-validator';
 
 @InputType('UpdateAvatarInput')
 export class UpdateAvatarDto {
+  @IsString()
+  @ApiProperty()
+  @Field(() => ID)
+  id: string;
+
   @IsString()
   @ApiPropertyOptional()
   @Field({ nullable: true })
