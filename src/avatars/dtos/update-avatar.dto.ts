@@ -18,5 +18,5 @@ export class UpdateAvatarDto {
   @IsUrl()
   @ApiPropertyOptional()
   @Field({ nullable: true })
-  avatarUrl?: string;
+  url?: string;
 }

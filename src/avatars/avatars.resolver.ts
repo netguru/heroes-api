@@ -1,5 +1,5 @@
 import { Args, ID, Mutation, Query, Resolver } from '@nestjs/graphql';
-import { PaginateOptionsDto } from '../dtos';
+import { PaginateOptionsDto } from '../common';
 import {
   AvatarDto,
   AvatarsPaginatedDto,

@@ -16,7 +16,7 @@ import {
 } from '@nestjs/swagger';
 import { AvatarsService } from './avatars.service';
 import { CreateAvatarDto, UpdateAvatarDto, AvatarDto } from './dtos';
-import { ApiArrayResponse } from '../decorators';
+import { ApiArrayResponse } from '../common';
 
 @Controller('avatars')
 @ApiTags('avatars')

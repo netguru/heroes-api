@@ -1,5 +1,5 @@
 import { ObjectType } from '@nestjs/graphql';
-import { PaginatedDto } from '../../dtos';
+import { PaginatedDto } from '../../common';
 import { AvatarDto } from './avatar.dto';
 
 @ObjectType('AvatarsPaginated')

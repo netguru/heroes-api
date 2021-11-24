@@ -14,7 +14,7 @@ import {
   ApiNotFoundResponse,
   ApiTags,
 } from '@nestjs/swagger';
-import { ApiPaginatedResponse } from '../decorators';
+import { ApiPaginatedResponse } from '../common';
 import { HeroesService } from './heroes.service';
 import {
   CreateHeroDto,

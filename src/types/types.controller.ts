@@ -16,7 +16,7 @@ import {
 } from '@nestjs/swagger';
 import { TypesService } from './types.service';
 import { CreateTypeDto, UpdateTypeDto, TypeDto } from './dtos';
-import { ApiArrayResponse } from '../decorators';
+import { ApiArrayResponse } from '../common';
 
 @Controller('types')
 @ApiTags('types')

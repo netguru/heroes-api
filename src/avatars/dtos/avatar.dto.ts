@@ -13,5 +13,5 @@ export class AvatarDto {
 
   @ApiProperty()
   @Field()
-  avatarUrl: string;
+  url: string;
 }
