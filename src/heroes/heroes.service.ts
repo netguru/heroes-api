@@ -9,14 +9,14 @@ export class HeroesService {
   heroes(args?: Omit<Prisma.HeroFindManyArgs, 'include'>) {
     return this.database.hero.findMany({
       ...args,
-      include: { type: true, avatar: true },
+      include: { type: true },
     });
   }
 
   hero(args?: Omit<Prisma.HeroFindUniqueArgs, 'include'>) {
     return this.database.hero.findUnique({
       ...args,
-      include: { type: true, avatar: true },
+      include: { type: true },
     });
   }
 
@@ -27,7 +27,7 @@ export class HeroesService {
   async create(data: Prisma.HeroCreateInput) {
     return this.database.hero.create({
       data,
-      include: { type: true, avatar: true },
+      include: { type: true },
     });
   }
 
@@ -35,14 +35,14 @@ export class HeroesService {
     return this.database.hero.update({
       where,
       data,
-      include: { type: true, avatar: true },
+      include: { type: true },
     });
   }
 
   delete(where: Prisma.HeroWhereUniqueInput) {
     return this.database.hero.delete({
       where,
-      include: { type: true, avatar: true },
+      include: { type: true },
     });
   }
 

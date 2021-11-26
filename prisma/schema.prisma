@@ -7,18 +7,10 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Avatar {
-  id        String @id @default(uuid())
-  alt       String @default(value: "Image")
-  avatarUrl String
-  hero      Hero[]
-}
-
 model Hero {
   id          String @id @default(uuid())
   fullName    String
-  avatar      Avatar @relation(references: [id], fields: [avatarId])
-  avatarId    String
+  avatarUrl   String
   description String
   type        Type   @relation(references: [id], fields: [typeId])
   typeId      String

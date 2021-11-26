@@ -1,4 +1,4 @@
-import { IsString } from 'class-validator';
+import { IsString, IsUrl } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 import { Field, ID, InputType } from '@nestjs/graphql';
 
@@ -15,9 +15,10 @@ export class CreateHeroDto {
   typeId: string;
 
   @IsString()
+  @IsUrl()
   @ApiProperty()
-  @Field(() => ID)
-  avatarId: string;
+  @Field()
+  avatarUrl: string;
 
   @IsString()
   @ApiProperty()

@@ -72,11 +72,10 @@ export class HeroesController {
   @ApiOkResponse({ type: HeroDto })
   @ApiBadRequestResponse()
   create(@Body() createHeroDto: CreateHeroDto): Promise<HeroDto> {
-    const { typeId, avatarId, ...hero } = createHeroDto;
+    const { typeId, ...hero } = createHeroDto;
     return this.heroesService.create({
       ...hero,
       type: { connect: { id: typeId } },
-      avatar: { connect: { id: avatarId } },
     });
   }
 
@@ -88,13 +87,12 @@ export class HeroesController {
     @Param('id') id: string,
     @Body() updateHeroDto: UpdateHeroDto,
   ): Promise<HeroDto> {
-    const { typeId, avatarId, ...hero } = updateHeroDto;
+    const { typeId, ...hero } = updateHeroDto;
     return this.heroesService.update(
       { id },
       {
         ...hero,
         type: { connect: { id: typeId } },
-        avatar: { connect: { id: avatarId } },
       },
     );
   }

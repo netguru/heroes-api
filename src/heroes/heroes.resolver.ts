@@ -50,23 +50,21 @@ export class HeroesResolver {
 
   @Mutation(() => HeroDto)
   createHero(@Args('input') input: CreateHeroDto): Promise<HeroDto> {
-    const { avatarId, typeId, ...hero } = input;
+    const { typeId, ...hero } = input;
     return this.heroesService.create({
       ...hero,
       type: { connect: { id: typeId } },
-      avatar: { connect: { id: avatarId } },
     });
   }
 
   @Mutation(() => HeroDto)
   updateHero(@Args('input') input: UpdateHeroDto): Promise<HeroDto> {
-    const { id, avatarId, typeId, ...hero } = input;
+    const { id, typeId, ...hero } = input;
     return this.heroesService.update(
       { id },
       {
         ...hero,
         type: { connect: { id: typeId } },
-        avatar: { connect: { id: avatarId } },
       },
     );
   }
