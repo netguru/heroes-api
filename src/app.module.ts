@@ -6,12 +6,12 @@ import { TypesModule } from './types';
 
 @Module({
   imports: [
-    DatabaseModule,
-    HeroesModule,
-    TypesModule,
     GraphQLModule.forRoot({
       autoSchemaFile: 'schema.gql',
     }),
+    DatabaseModule,
+    HeroesModule,
+    TypesModule,
   ],
 })
 export class AppModule {}
