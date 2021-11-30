@@ -1,9 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { Prisma } from '@prisma/client';
 import { PrismaService } from '../database';
+import { HeroesRepository } from './heroes-repository.interface';
 
 @Injectable()
-export class HeroesService {
+export class HeroesService implements HeroesRepository {
   constructor(private readonly database: PrismaService) {}
 
   heroes(args?: Omit<Prisma.HeroFindManyArgs, 'include'>) {
@@ -20,7 +21,7 @@ export class HeroesService {
     });
   }
 
-  count(args?: Prisma.HeroCountArgs): Promise<number> {
+  count(args?: Prisma.HeroCountArgs) {
     return this.database.hero.count(args);
   }
 
