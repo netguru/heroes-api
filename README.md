@@ -57,7 +57,9 @@ Before you start, make sure you have [Docker](https://docs.docker.com/install/) 
 
 ### Documentation
 
-Heroes API documention can be found [here](https://github.com/netguru/heroes-api/wiki).
+Documentation can be found, after initial setup, for HTTP in [Swagger](http://localhost:3000/swagger/#/), for GraphQL in [GraphQL Playground](http://localhost:3000/graphql).
+
+Old API documentation can be found [here](https://github.com/netguru/heroes-api/wiki).
 
 ### Initial setup
 
@@ -71,37 +73,21 @@ Heroes API documention can be found [here](https://github.com/netguru/heroes-api
 2. Launch Docker compose to run Prisma's and MySQL's images.
    `docker-compose up -d`
 
-3. Install all the dependencies.
-   `npm install`
+3. Open API container's terminal
+   `docker exec -it heroes-api_api_1 /bin/sh`
 
-4. Generate prisma instance based on datamodel.
-   `npm run generate`
+4. Deploy database schema into the MySQL database.
+   `npx prisma db push`
 
-5. Deploy database schema into the MySQL database.
-   `npm run deploy`
+5. Seed the database with default data.
+   `npx prisma db seed`
 
-6. Seed the database with default data.
-   `npm run seed`
+6. Generate Prisma Client
+   `npx prisma generate`
 
 ### Running the project
 
-#### For REST API
 
-- Run in terminal:
-  `npm run start:rest`
-
-#### For GraphQL
-
-- Run in terminal
-  `npm run start:graphql`
-
-#### Important
-
-- Deploy new schema (after modifying `datamodel.prisma`)
-  `prisma deploy`
-
-- AFTER MODIFYING `prisma.yml`
-  `npm run generate`
 
 <!-- Authors -->
 
