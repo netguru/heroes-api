@@ -24,13 +24,13 @@ services:
     depends_on:
       - mysql
     ports:
-      - 3000:3000
+      - "3000:3000"
 
   adminer:
     image: adminer
     restart: always
     ports:
-      - 8080:8080
+      - "8080:8080"
 
 volumes:
   mysql: ~
