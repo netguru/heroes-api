@@ -1,4 +1,3 @@
-import { lorem } from 'faker';
 import { PrismaClient } from '@prisma/client';
 import {
   animalTypeSeed,
@@ -15,6 +14,8 @@ import {
 
 const prisma = new PrismaClient();
 
+const sentence = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ullamcorper aliquet porttitor.`;
+
 async function main() {
   const [humanType, animalType, plantType, otherType] = await Promise.all([
     prisma.type.create({ data: humanTypeSeed }),
@@ -25,7 +26,7 @@ async function main() {
 
   await prisma.hero.createMany({
     data: animalHeroesSeed.map((heroSeed) => ({
-      description: lorem.sentence(),
+      description: 'Lorem ipsum',
       typeId: animalType.id,
       ...heroSeed,
     })),
@@ -33,7 +34,7 @@ async function main() {
 
   await prisma.hero.createMany({
     data: humanHeroesSeed.map((heroSeed) => ({
-      description: lorem.sentence(),
+      description: sentence,
       typeId: humanType.id,
       ...heroSeed,
     })),
@@ -41,7 +42,7 @@ async function main() {
 
   await prisma.hero.createMany({
     data: plantHeroesSeed.map((heroSeed) => ({
-      description: lorem.sentence(),
+      description: sentence,
       typeId: plantType.id,
       ...heroSeed,
     })),
@@ -49,7 +50,7 @@ async function main() {
 
   await prisma.hero.createMany({
     data: otherHeroesSeed.map((heroSeed) => ({
-      description: lorem.sentence(),
+      description: sentence,
       typeId: otherType.id,
       ...heroSeed,
     })),
