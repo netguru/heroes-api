@@ -16,6 +16,8 @@ services:
       context: .
       target: development
     command: npm run start:dev
+    environment:
+      DATABASE_URL: $DATABASE_URL
     volumes:
       - .:/app
       - /app/node_modules/
