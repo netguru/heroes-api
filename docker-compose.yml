@@ -4,8 +4,9 @@ services:
     image: mysql:8
     restart: always
     environment:
-      MYSQL_ROOT_USER: $DATABASE_USER
-      MYSQL_ROOT_PASSWORD: $DATABASE_PASSWORD
+      MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
+      MYSQL_USER: $DATABASE_USER
+      MYSQL_PASSWORD: $DATABASE_PASSWORD
       MYSQL_DATABASE: $DATABASE_NAME
     volumes:
       - mysql:/var/lib/mysql
