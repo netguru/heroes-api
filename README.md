@@ -14,7 +14,7 @@
   <h3 align="center">Heroes API</h3>
 
   <p align="center">
-A backend appliaction built with Prisma, Docker and Node.js
+A backend application built with Prisma, Docker and Node.js
     <br />
     <a href="https://github.com/netguru/heroes-api/wiki"><strong>Explore the docs »</strong></a>
     <br />
@@ -32,6 +32,7 @@ A backend appliaction built with Prisma, Docker and Node.js
 - [Table of Contents](#table-of-contents)
 - [Built With](#built-with)
 - [Getting Started](#getting-started)
+  - [Documentation](#documentation)
   - [Initial setup](#initial-setup)
   - [Running the project](#running-the-project)
     - [For REST API](#for-rest-api)
@@ -54,21 +55,32 @@ This application was built with:
 
 Before you start, make sure you have [Docker](https://docs.docker.com/install/) and [Node](https://nodejs.org/en/) installed on your local machine.
 
+### Documentation
+
+Heroes API documention can be found [here](https://github.com/netguru/heroes-api/wiki).
+
 ### Initial setup
 
-1. Launch Docker compose to run Prisma's and MySQL's images.
+1. Clone this repo into your local machine
+
+- with **https** </br>
+  `git clone https://github.com/netguru/heroes-api.git`
+- or with **ssh** </br>
+  `git clone git@github.com:netguru/heroes-api.git`
+
+2. Launch Docker compose to run Prisma's and MySQL's images.
    `docker-compose up -d`
 
-2. Install all the dependencies.
+3. Install all the dependencies.
    `npm install`
 
-3. Generate prisma instance based on datamodel.
+4. Generate prisma instance based on datamodel.
    `npm run generate`
 
-4. Deploy database schema into the MySQL database.
+5. Deploy database schema into the MySQL database.
    `npm run deploy`
 
-5. Seed the database with default data.
+6. Seed the database with default data.
    `npm run seed`
 
 ### Running the project

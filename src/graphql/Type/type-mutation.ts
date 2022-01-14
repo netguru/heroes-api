@@ -1,4 +1,5 @@
 import { Context } from '@interface/prisma';
+
 import { ErrorHandler } from '../../utils';
 
 interface CreateNewTypeProps {

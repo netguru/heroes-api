@@ -1,9 +1,10 @@
+import { Context } from '@interface/prisma';
+
 import {
   AvatarCreateInput,
   AvatarUpdateInput,
   AvatarWhereUniqueInput,
 } from '../../../generated/prisma-client';
-import { Context } from '@interface/prisma';
 
 type UpdateAvatarProps = AvatarUpdateInput & { id: string };
 

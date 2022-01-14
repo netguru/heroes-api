@@ -2,6 +2,7 @@ import { graphql } from 'body-parser-graphql';
 import { GraphQLServer } from 'graphql-yoga';
 import express, { Request, Response } from 'express';
 import { config } from 'dotenv';
+
 import { prisma } from '../generated/prisma-client';
 import { resolvers } from './graphql/resolvers';
 

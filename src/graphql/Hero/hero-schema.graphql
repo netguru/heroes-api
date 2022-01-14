@@ -8,6 +8,11 @@ type Hero {
   type: Type!
 }
 
+type HeroesResponse {
+  data: [Hero!]!
+  total_count: Int!
+}
+
 type Mutation {
   createNewHero(
     full_name: String!
@@ -26,7 +31,7 @@ type Mutation {
 }
 
 type Query {
-  heroes(type_id: ID, name_query: String, skip: Int, first: Int): [Hero!]!
+  heroes(type_id: ID, name_query: String, skip: Int, first: Int): HeroesResponse
   hero(id: ID!): Hero!
   randomHero: Hero!
 }
