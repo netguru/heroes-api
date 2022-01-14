@@ -93,10 +93,8 @@ Old API documentation can be found [here](https://github.com/netguru/heroes-api/
 
 ## Authors
 
-1. <a href="https://github.com/qmixi" target="_blank">Piotr Kumorek</a>
-2. <a href="https://github.com/SebastianStj" target="_blank">Sebastian Stój</a>
-3. <a href="https://github.com/slawomirkolodziej" target="_blank">Sławek Kołodziej</a>
-4. <a href="https://github.com/Kamieniu" target="_blank">Franciszek Stodulski</a>
+1. <a href="https://github.com/serrg" target="_blank">Sergiusz Strumiński</a>
+2. <a href="https://github.com/jog1t" target="_blank">Kacper Wojciechowski</a>
 
 <!-- LICENSE -->
 
