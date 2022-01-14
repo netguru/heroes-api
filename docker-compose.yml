@@ -8,6 +8,8 @@ services:
       MYSQL_USER: $DATABASE_USER
       MYSQL_PASSWORD: $DATABASE_PASSWORD
       MYSQL_DATABASE: $DATABASE_NAME
+    volumes:
+      - mysql:/var/lib/mysql
 
   api:
     build:
@@ -30,3 +32,6 @@ services:
     restart: always
     ports:
       - "8080:8080"
+
+volumes:
+  mysql: ~
