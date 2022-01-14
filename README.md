@@ -71,7 +71,7 @@ Old API documentation can be found [here](https://github.com/netguru/heroes-api/
   `git clone git@github.com:netguru/heroes-api.git`
 
 2. Launch Docker compose to run Prisma's and MySQL's images.
-   `docker-compose up -d`
+   `docker compose up -d`
 
 3. Open API container's terminal
    `docker exec -it heroes-api_api_1 /bin/sh`
@@ -82,11 +82,15 @@ Old API documentation can be found [here](https://github.com/netguru/heroes-api/
 5. Seed the database with default data.
    `npx prisma db seed`
 
-6. Generate Prisma Client
-   `npx prisma generate`
-
 ### Running the project
 
+After the initial setup there's no additional work needed, project is running in the background as a Docker container.
+
+- The API is available on your local machine on `http://localhost:3000`.
+- Swagger documentation is available on `http://localhost:3000/swagger/`.
+- GraphQL playground is available on `http://localhost:3000/graphql`.
+
+You can stop it by executing `docker compose stop`, and you can resume it by `docker compose start`
 
 
 <!-- Authors -->
