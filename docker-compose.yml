@@ -1,6 +1,7 @@
 version: '3.4'
 services:
   mysql:
+    platform: linux/x86_64
     image: mysql:8
     restart: always
     environment:
@@ -12,6 +13,7 @@ services:
       - mysql:/var/lib/mysql
 
   api:
+    platform: linux/x86_64
     build:
       dockerfile: Dockerfile
       context: .
