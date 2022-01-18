@@ -8,6 +8,7 @@ import { TypesModule } from './types';
   imports: [
     GraphQLModule.forRoot({
       autoSchemaFile: 'schema.gql',
+      cors: true,
     }),
     DatabaseModule,
     HeroesModule,
