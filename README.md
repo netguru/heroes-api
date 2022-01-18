@@ -74,7 +74,7 @@ Old API documentation can be found [here](https://github.com/netguru/heroes-api/
    `docker compose up -d`
 
 3. Open API container's terminal
-   `docker exec -it heroes-api_api_1 /bin/sh`
+   `docker compose exec api /bin/sh`
 
 4. Deploy database schema into the MySQL database.
    `npx prisma db push`
