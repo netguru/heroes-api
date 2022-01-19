@@ -42,6 +42,7 @@ A backend application built with Prisma, Docker and NestJS
 
 This application was built with:
 
+- [NestJS](https://nestjs.com/)
 - [Prisma](https://www.prisma.io/)
 - [Node.js](https://node.js.org/)
 - [Docker](https://www.docker.com/)
