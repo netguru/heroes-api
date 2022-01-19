@@ -56,8 +56,6 @@ Before you start, make sure you have [Docker](https://docs.docker.com/install/) 
 
 Documentation can be found, after initial setup, for HTTP in [Swagger](http://localhost:3000/swagger/#/), for GraphQL in [GraphQL Playground](http://localhost:3000/graphql).
 
-Old API documentation can be found [here](https://github.com/netguru/heroes-api/wiki).
-
 ### Initial setup
 
 1. Clone this repo into your local machine
