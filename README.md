@@ -27,18 +27,15 @@ A backend application built with Prisma, Docker and NestJS
 ## Table of Contents
 
 - [Table of Contents](#table-of-contents)
-- [Built With](#built-with)
+- [Stack](#stack)
 - [Getting Started](#getting-started)
   - [Documentation](#documentation)
   - [Initial setup](#initial-setup)
   - [Running the project](#running-the-project)
-    - [For REST API](#for-rest-api)
-    - [For GraphQL](#for-graphql)
-    - [Important](#important)
 - [Authors](#authors)
 - [License](#license)
 
-## Built With
+## Stack
 
 This application was built with:
 
@@ -82,9 +79,9 @@ Documentation can be found, after initial setup, for HTTP in [Swagger](http://lo
 
 After the initial setup there's no additional work needed, project is running in the background as a Docker container.
 
-- The API is available on your local machine on `http://localhost:3000`.
+- The REST API is available on your local machine on `http://localhost:3000`.
 - Swagger documentation is available on `http://localhost:3000/swagger/`.
-- GraphQL playground is available on `http://localhost:3000/graphql`.
+- GraphQL playground (and server) is available on `http://localhost:3000/graphql`.
 
 You can stop it by executing `docker compose stop`, and you can resume it by `docker compose start`
 
