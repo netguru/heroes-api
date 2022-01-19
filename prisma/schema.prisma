@@ -1,0 +1,23 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Hero {
+  id          String @id @default(uuid())
+  fullName    String
+  avatarUrl   String
+  description String
+  type        Type   @relation(references: [id], fields: [typeId])
+  typeId      String
+}
+
+model Type {
+  id   String @id @default(uuid())
+  name String
+  hero Hero[]
+}

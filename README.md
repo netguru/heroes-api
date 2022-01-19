@@ -57,7 +57,9 @@ Before you start, make sure you have [Docker](https://docs.docker.com/install/) 
 
 ### Documentation
 
-Heroes API documention can be found [here](https://github.com/netguru/heroes-api/wiki).
+Documentation can be found, after initial setup, for HTTP in [Swagger](http://localhost:3000/swagger/#/), for GraphQL in [GraphQL Playground](http://localhost:3000/graphql).
+
+Old API documentation can be found [here](https://github.com/netguru/heroes-api/wiki).
 
 ### Initial setup
 
@@ -69,48 +71,34 @@ Heroes API documention can be found [here](https://github.com/netguru/heroes-api
   `git clone git@github.com:netguru/heroes-api.git`
 
 2. Launch Docker compose to run Prisma's and MySQL's images.
-   `docker-compose up -d`
+   `docker compose up -d`
 
-3. Install all the dependencies.
-   `npm install`
+3. Open API container's terminal
+   `docker compose exec api /bin/sh`
 
-4. Generate prisma instance based on datamodel.
-   `npm run generate`
+4. Deploy database schema into the MySQL database.
+   `npx prisma db push`
 
-5. Deploy database schema into the MySQL database.
-   `npm run deploy`
-
-6. Seed the database with default data.
-   `npm run seed`
+5. Seed the database with default data.
+   `npx prisma db seed`
 
 ### Running the project
 
-#### For REST API
+After the initial setup there's no additional work needed, project is running in the background as a Docker container.
 
-- Run in terminal:
-  `npm run start:rest`
+- The API is available on your local machine on `http://localhost:3000`.
+- Swagger documentation is available on `http://localhost:3000/swagger/`.
+- GraphQL playground is available on `http://localhost:3000/graphql`.
 
-#### For GraphQL
+You can stop it by executing `docker compose stop`, and you can resume it by `docker compose start`
 
-- Run in terminal
-  `npm run start:graphql`
-
-#### Important
-
-- Deploy new schema (after modifying `datamodel.prisma`)
-  `prisma deploy`
-
-- AFTER MODIFYING `prisma.yml`
-  `npm run generate`
 
 <!-- Authors -->
 
 ## Authors
 
-1. <a href="https://github.com/qmixi" target="_blank">Piotr Kumorek</a>
-2. <a href="https://github.com/SebastianStj" target="_blank">Sebastian Stój</a>
-3. <a href="https://github.com/slawomirkolodziej" target="_blank">Sławek Kołodziej</a>
-4. <a href="https://github.com/Kamieniu" target="_blank">Franciszek Stodulski</a>
+1. <a href="https://github.com/serrg" target="_blank">Sergiusz Strumiński</a>
+2. <a href="https://github.com/jog1t" target="_blank">Kacper Wojciechowski</a>
 
 <!-- LICENSE -->
 
