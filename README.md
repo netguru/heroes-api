@@ -8,16 +8,13 @@
 <br />
 <p align="center">
   <a href="https://github.com/netguru/heroes-api">
-    <img src="https://raw.githubusercontent.com/netguru/heroes-api/master/assets/batman.png" alt="Logo" width="80" height="80">
+    <img src="https://raw.githubusercontent.com/netguru/heroes-api/master/static/batman.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Heroes API</h3>
 
   <p align="center">
-A backend application built with Prisma, Docker and Node.js
-    <br />
-    <a href="https://github.com/netguru/heroes-api/wiki"><strong>Explore the docs »</strong></a>
-    <br />
+A backend application built with Prisma, Docker and NestJS
     <br />
     <a href="https://github.com/netguru/heroes-api/issues">Report Bug</a>
     ·
