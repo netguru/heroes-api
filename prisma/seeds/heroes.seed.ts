@@ -1,57 +1,59 @@
+const ASSETS_PATH = '/static';
+
 export const humanHeroesSeed = [
   {
     fullName: 'Batman',
-    avatarUrl: `/assets/batman.png`,
+    avatarUrl: `${ASSETS_PATH}/batman.png`,
   },
   {
     fullName: 'Wrestler',
-    avatarUrl: `/assets/wrestler.png`,
+    avatarUrl: `${ASSETS_PATH}/wrestler.png`,
   },
   {
     fullName: 'Donald Trump',
-    avatarUrl: `/assets/trump.png`,
+    avatarUrl: `${ASSETS_PATH}/trump.png`,
   },
   {
     fullName: 'Harley Quinn',
-    avatarUrl: `/assets/harley_queen.png`,
+    avatarUrl: `${ASSETS_PATH}/harley_queen.png`,
   },
 
   {
     fullName: 'Albert Einstain',
-    avatarUrl: `/assets/einstein.png`,
+    avatarUrl: `${ASSETS_PATH}/einstein.png`,
   },
   {
     fullName: 'Ozzy',
-    avatarUrl: `/assets/ozzy.png`,
+    avatarUrl: `${ASSETS_PATH}/ozzy.png`,
   },
 ];
 export const plantHeroesSeed = [
   {
     fullName: 'The Cactus',
-    avatarUrl: `/assets/cactus.png`,
+    avatarUrl: `${ASSETS_PATH}/cactus.png`,
   },
   {
     fullName: 'The Avocado',
-    avatarUrl: `/assets/avocado.png`,
+    avatarUrl: `${ASSETS_PATH}/avocado.png`,
   },
 ];
 export const animalHeroesSeed = [
   {
     fullName: 'Sluggard',
-    avatarUrl: `/assets/sluggard.png`,
+    avatarUrl: `${ASSETS_PATH}/sluggard.png`,
   },
   {
     fullName: 'Cool Sheep',
-    avatarUrl: `/assets/sheep.png`,
+    avatarUrl: `${ASSETS_PATH}/sheep.png`,
   },
 ];
 export const otherHeroesSeed = [
   {
     fullName: 'Shelba',
-    avatarUrl: `/assets/spider.png`,
+    avatarUrl: `${ASSETS_PATH}/spider.png`,
   },
   {
     fullName: 'UFO',
-    avatarUrl: `/assets/ufo.png`,
+    avatarUrl: `${ASSETS_PATH}/ufo.png`,
   },
 ];
