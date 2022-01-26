@@ -11,7 +11,7 @@ model Hero {
   id          String @id @default(uuid())
   fullName    String
   avatarUrl   String
-  description String
+  description String @db.Text
   type        Type   @relation(references: [id], fields: [typeId])
   typeId      String
 }
